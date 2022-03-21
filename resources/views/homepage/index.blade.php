@@ -1,126 +1,6 @@
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-    <title>Masjid Raya Annur Polinema</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('template/home/assets/images/x-icon/logo.png')}}">
-
-    <link rel="stylesheet" href="{{asset('template/home/assets/css/animate.css')}}">
-    <link rel="stylesheet" href="{{asset('template/home/assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('template/home/assets/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('template/home/assets/css/icofont.min.css')}}">
-    <link rel="stylesheet" href="{{asset('template/home/assets/css/lightcase.css')}}">
-    <link rel="stylesheet" href="{{asset('template/home/assets/css/swiper.min.css')}}">
-    <link rel="stylesheet" href="{{asset('template/home/assets/css/style.css')}}">
-</head>
-
-<body>
-
-    <!-- preloader start here -->
-    <div class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    <!-- preloader ending here -->
-
-    <!-- Header Section Starts Here -->
-    <header class="header-3 pattern-1">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-xl-3 col-12">
-                    <div class="mobile-menu-wrapper d-flex flex-wrap align-items-center justify-content-between">
-                        <div class="header-bar d-lg-none">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="{{asset('template/home/assets/images/logo/logo_1.png')}}
-                                " alt="logo">
-                            </a>
-                        </div>
-                        <div class="ellepsis-bar d-lg-none">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-12">
-                    <div class="header-top">
-                        <div class="header-top-area">
-                            <ul class="left lab-ul">
-                                <li>
-                                    <i class="icofont-ui-call"></i> <span> (0341)404424</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-map-marker-alt"></i> Jl. Soekarno Hatta No. 09 Malang
-                                </li>
-                            </ul>
-                            <ul class="social-icons lab-ul d-flex">
-                                <li>
-                                    <a href="https://www.youtube.com/c/MasjidRayaAnnurPolinema"><i class="fab fa-youtube"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/rayaannurpolinema/"><i class="fab fa-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fab fa-skype"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fas fa-wifi"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="header-bottom">
-                        <div class="header-wrapper">
-                            <div class="menu-area justify-content-between w-100">
-                                <ul class="menu lab-ul">
-                                    <li>
-                                        <a href="index.html">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="about.html">About</a>
-                                    </li>
-                                    <li>
-                                        <a href="#0">Kegiatan</a>                                        
-                                    </li>
-                                    <li>
-                                        <a href="#0">Program</a>
-                                        <ul class="submenu">
-                                            <li> <a href="programs.html">Programs</a></li>
-                                            <li><a href="program-single.html">Program Single</a></li>
-                                        </ul>
-                                    </li>                                    
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                                <div class="prayer-time d-none d-lg-block">
-                                    <a href="#" class="prayer-time-btn"><i class="icofont-clock-time"></i> Today Prayer
-                                        Time</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header Section Ends Here-->
-
-    <!-- Banner Section start here -->
+@extends('homepage._page.master')
+@section('banner')
     <section class="banner-section">
-        {{-- <div class="banner-overlay"></div> --}}
         <div class="container">
             <div class="row align-items-center flex-column-reverse flex-md-row">
                 {{-- <div class="col-md-6">
@@ -135,11 +15,13 @@
                 <div class="col-md-12">
                     <div class="banner-item">
                         <div class="banner-inner">
-                            <div class="banner-content align-middle">
-                                <h1 style="color: white"><span class="">Masjid Raya Annur<br class="d-none d-lg-block">
-                                         </span>Polinema</h1>
-                                <p style="color:white">Tempat Peribadatan yang sangat menyejukkan hati dan jiwa</p>
-                                <a href="#" class="lab-btn mt-3">Visit Us <i class="icofont-heart-alt"></i></a>
+                            <div class="banner-content align-center">
+                                <center>
+                                    <h1 style="color: white"><span class="">Masjid Raya Annur<br class="d-none d-lg-block">
+                                             </span>Politeknik Negeri Malang</h1>
+                                    <p style="color:white">Tempat Peribadatan yang sangat menyejukkan hati dan jiwa</p>
+                                    <a href="#" class="lab-btn mt-3">Visit Us <i class="icofont-heart-alt"></i></a>
+                                </center>
                             </div>
                         </div>
                     </div>
@@ -147,9 +29,9 @@
             </div>
         </div>
     </section>
-    <!-- Banner Section end here -->
-
-    <!-- About section start here -->
+@stop
+@section('content')
+<!-- About section start here -->
     <section class="about-section padding-tb shape-1">
         <div class="container">
             <div class="row align-items-center">
@@ -158,17 +40,15 @@
                         <div class="lab-inner">
                             <div class="lab-content">
                                 <div class="header-title text-start m-0">
-                                    <h5>About Our History</h5>
-                                    <h2 class="mb-0">Islamic Center For Muslims To
-                                        Achieve Spiritual Goals</h2>
+                                    <h5>Tentang Kami</h5>
+                                    <h2 class="mb-0">Masjid Raya Annur Polinema</h2>
                                 </div>
-                                <h5 class="my-4">Our Promise To Uphold The Trust Placed.</h5>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi molestias culpa
-                                    reprehenderit delectus, ullam harum, voluptatum numquam ati nesciunt odit quis
-                                    corrupti magni quam consequatur sint ipsum tecto exercitationem, illo quisquam.
-                                    Reprehenderit ut placeat cum adantium nam magnam blanditiis sequi modi! Nesciunt,
-                                    repudiandae eos eniam quod maxime corrupti eligendi ea in animi.</p>
-                                <a href="#" class="lab-btn mt-4">Ask About Islam <i class="icofont-heart-alt"></i></a>
+                                {{-- <h5 class="my-4">Our Promise To Uphold The Trust Placed.</h5> --}}<br>
+                                <p>Masjid Raya Annur Polinema diresmikan pada tanggal 18 Maret 2018 oleh bapak menteri kemendikbud, 
+                                    dan merupakan salah satu masjid kampus yang besar dan nyaman, sehingga jamaah yang mengunjungi masjid ini 
+                                    akan merasa nyaman dalam beribadah. ea
+                                    </p>
+                                <a href="#" class="lab-btn mt-4">Kunjungi Kami <i class="icofont-heart-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -206,8 +86,9 @@
                                 <img src="{{asset('template/home/assets/images/feature/01.png')}}" alt="feature-image">
                             </div>
                             <div class="lab-content">
-                                <h5>Quran Studies</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
+                                <h5>Al-Quran Study Club</h5>
+                                <p>bertujuan untuk menunjang mahasiswa/masyarakat umum
+                                    yang akan belajar tentang Al-Quran
                                 </p>
                                 <a href="#" class="text-btn">Sponsor Now!</a>
                             </div>
@@ -221,29 +102,15 @@
                                 <img src="{{asset('template/home/assets/images/feature/02.png')}}" alt="feature-image">
                             </div>
                             <div class="lab-content">
-                                <h5>Islamic Classes</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
+                                <h5>Kultum Dhuhur</h5>
+                                <p>Kultum Dhuhur ini rutin kami adakan setiap hari Senin-Kamis 
+                                    setelah Sholat Dhuhur Berjama’ah.
                                 </p>
-                                <a href="#" class="text-btn">Donate Now!</a>
+                                <a href="#" class="text-btn">Join Now!</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="lab-item feature-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="{{asset('template/home/assets/images/feature/03.png')}}" alt="feature-image">
-                            </div>
-                            <div class="lab-content">
-                                <h5>Islamic Awareness</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
-                                </p>
-                                <a href="#" class="text-btn">Join Us!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>                
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="lab-item feature-item">
                         <div class="lab-inner">
@@ -251,10 +118,12 @@
                                 <img src="{{asset('template/home/assets/images/feature/04.png')}}" alt="feature-image">
                             </div>
                             <div class="lab-content">
-                                <h5>Islamic Services</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
+                                <h5>Majlis Sholawat </h5>
+                                <h5>Polinema</h5>
+                                <p>di selenggarakan pada setiap hari Kamis Awal Bulan Ba'da Sholat Maghrib  diisi dengan grup albanjari 
+                                    dari Polinema Syifaul Qolbi
                                 </p>
-                                <a href="#" class="text-btn">Get Involved!</a>
+                                <a href="#" class="text-btn">Join Us!</a>
                             </div>
                         </div>
                     </div>
@@ -270,9 +139,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="header-title">
-                        <h5>Islamic Center Services</h5>
-                        <h2>Ethical And Moral Beliefs That Guides
-                            To The Straight Path!</h2>
+                        <h5>Artikel Keislaman</h5>
+                        <h2>Artikel Masjid Raya Annur Polinema</h2>
                     </div>
                 </div>
                 <div class="col-12">
@@ -369,9 +237,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="header-title">
-                        <h5>The Pillars of Islam</h5>
-                        <h2>Ethical And Moral Beliefs That Guides
-                            To The Straight Path!</h2>
+                        <h5>5 Rukun Islam</h5>
+                        <h2>Pilar dari Agama Islam</h2>
                     </div>
                 </div>
                 <div class="col-12">
@@ -385,10 +252,10 @@
                                             <img src="{{asset('template/home/assets/images/faith/01.png')}}" alt="faith-image">
                                         </div>
                                         <div class="lab-content">
-                                            <h4>Shahadah <span>(Faith)</span> </h4>
-                                            <p>The Shahadah, is an Islamic creed, one of the Five Pillars of Islam and
-                                                part of the Adhan. It reads: "I bear witness that there is no deity but
-                                                God, and I bear witness that Muhammad is the messenger of God."</p>
+                                            <h4>Syahadat <span>(Kesaksian)</span> </h4>
+                                            <p>Mengucapkan dua kalimat syahadat yaitu  أشهد أن لااله الاالله واشهد ان محمدا رسول الله 
+                                                Aku ber-i’tikad bahwa sesungguhnya tiada Tuhan melainkan Allah, 
+                                                dan aku ber-I’tikad bahwa Nabi Muhammad itu utusan Allah.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -400,11 +267,10 @@
                                             <img src="{{asset('template/home/assets/images/faith/02.png')}}" alt="faith-image">
                                         </div>
                                         <div class="lab-content">
-                                            <h4>Salaah <span>(Prayer)</span> </h4>
-                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
-                                                the afternoon, after sunset, and early at night. These prayers can be
-                                                said anywhere, prayers that are said in company of others are better
-                                                than those said alone.</p>
+                                            <h4>Sholat <span>(Ibadah)</span> </h4>
+                                            <p>Mendirikan sembayang (shalat) lima waktu. perlu diingat bahwasannya sembayang (shalat) 
+                                                lima waktu inilah tanda keislaman yang kelihatan tiap-tiap hari, dan inilah yang kelihatan 
+                                                membedakan antara orang Islam dengan lain Islam</p>
                                         </div>
                                     </div>
                                 </div>
@@ -416,11 +282,8 @@
                                             <img src="{{asset('template/home/assets/images/faith/03.png')}}" alt="faith-image">
                                         </div>
                                         <div class="lab-content">
-                                            <h4>Sawm <span>(Fasting)</span> </h4>
-                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
-                                                the afternoon, after sunset, and early at night. These prayers can be
-                                                said anywhere, prayers that are said in company of others are better
-                                                than those said alone.</p>
+                                            <h4>Puasa <span>(Shoum)</span> </h4>
+                                            <p>Melaksanakan Puasa Ramadhan setiap tahunnya.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -432,11 +295,9 @@
                                             <img src="{{asset('template/home/assets/images/faith/04.png')}}" alt="faith-image">
                                         </div>
                                         <div class="lab-content">
-                                            <h4>Zakat <span>(Almsgiving)</span> </h4>
-                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
-                                                the afternoon, after sunset, and early at night. These prayers can be
-                                                said anywhere, prayers that are said in company of others are better
-                                                than those said alone.</p>
+                                            <h4>Zakat <span>(Zakt)</span> </h4>
+                                            <p>Jangan lupa bahwa zakat itu ada ada beberapa bentuk; zakat fitrah, zakat tanaman (azzoeroe’), 
+                                                zakat emas dan perak, zakat hewan ternak (mawasyi), Zakat dagangan (tijaroh) dan lain sebagainya </p>
                                         </div>
                                     </div>
                                 </div>
@@ -448,11 +309,9 @@
                                             <img src="{{asset('template/home/assets/images/faith/05.png')}}" alt="faith-image">
                                         </div>
                                         <div class="lab-content">
-                                            <h4>Hajj <span>(Pilgrimage)</span> </h4>
-                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
-                                                the afternoon, after sunset, and early at night. These prayers can be
-                                                said anywhere, prayers that are said in company of others are better
-                                                than those said alone.</p>
+                                            <h4>Haji <span>(bagi yang mampu)</span> </h4>
+                                            <p>pabila kuasa dan cukupnya bekal dan amanya perjalanan dan sempat waktunya. 
+                                                Haji yang wajib hanya sekali dalam seumur hidup.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -509,8 +368,7 @@
                             <div class="lab-item qoute-item">
                                 <div class="lab-inner d-flex align-items-center">
                                     <div class="lab-thumb">
-                                        <span style="color:white">Quote From
-                                            Prophat</span>
+                                        <span style="color:white">Hadits & Quotes</span>
                                         <i class="icofont-quote-left"></i>
                                     </div>
                                     <div class="lab-content">
@@ -539,9 +397,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="header-title">
-                        <h5>Upcoming Events</h5>
-                        <h2>Ethical And Moral Beliefs That Guides
-                            To The Straight Path!</h2>
+                        <h5>Kegiatan dan Rutinan</h5>
+                        <h2>Masjid Raya Annur Polinema</h2>
                     </div>
                 </div>
                 <div class="col-12">
@@ -552,15 +409,13 @@
                             </div>
                             <div class="event-top-content">
                                 <div class="event-top-content-wrapper">
-                                    <h3><a href="#">Helping Hands For Poor People
-                                            Marriage Event</a> </h3>
+                                    <h3><a href="#">Kegiatan Ramadhan 1443 H </a> </h3>
                                     <div class="date-count-wrapper">
                                         <ul class="lab-ul event-date">
-                                            <li><i class="icofont-calendar"></i> <span>December 24,2021</span></li>
-                                            <li><i class="icofont-location-pin"></i> <span>New York AK United
-                                                    States</span></li>
+                                            <li><i class="icofont-calendar"></i> <span>April 02,2022</span></li>
+                                            <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
                                         </ul>
-                                        <ul class="lab-ul event-count" data-date="July 05, 2021 21:14:01">
+                                        <ul class="lab-ul event-count" data-date="April 02, 2022 21:14:01">
                                             <li>
                                                 <span class="days">34</span>
                                                 <div class="count-text">Days</div>
@@ -591,13 +446,11 @@
                                                 <img src="{{asset('template/home/assets/images/event/02.jpg')}}" alt="event-image">
                                             </div>
                                             <div class="lab-content">
-                                                <h5><a href="#">If Islam Teaches Peace, Why Are
-                                                        there Radical Muslims?</a> </h5>
+                                                <h5><a href="#">Kultum Rutin Ba'da Dhuhur, Oleh Ust. Syamsul</a> </h5>
                                                 <ul class="lab-ul event-date">
-                                                    <li><i class="icofont-calendar"></i> <span>December 24,2021</span>
+                                                    <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
                                                     </li>
-                                                    <li><i class="icofont-location-pin"></i> <span>New York AK United
-                                                            States</span></li>
+                                                    <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -610,13 +463,11 @@
                                                 <img src="{{asset('template/home/assets/images/event/03.jpg')}}" alt="event-image">
                                             </div>
                                             <div class="lab-content">
-                                                <h5><a href="#">American Muslim: Choosing Remain
-                                                        Still This Ramadan</a> </h5>
+                                                <h5><a href="#">Kajian Rutin Muslimah : Tutorial Sholat </a> </h5>
                                                 <ul class="lab-ul event-date">
-                                                    <li><i class="icofont-calendar"></i> <span>December 24,2021</span>
+                                                    <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
                                                     </li>
-                                                    <li><i class="icofont-location-pin"></i> <span>New York AK United
-                                                            States</span></li>
+                                                    <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -629,13 +480,11 @@
                                                 <img src="{{asset('template/home/assets/images/event/04.jpg')}}" alt="event-image">
                                             </div>
                                             <div class="lab-content">
-                                                <h5><a href="#"> How To Teach Kids Ramadan
-                                                        Isn’t About Food</a></h5>
+                                                <h5><a href="#"> Sholat & Khutbah Jum'at bersama Ust. Muwidha</a></h5>
                                                 <ul class="lab-ul event-date">
-                                                    <li><i class="icofont-calendar"></i> <span>December 24,2021</span>
+                                                    <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
                                                     </li>
-                                                    <li><i class="icofont-location-pin"></i> <span>New York AK United
-                                                            States</span></li>
+                                                    <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -649,160 +498,4 @@
         </div>
     </section>
     <!-- Events Section end here -->
-
-    <!-- Footer Section start here -->
-    <footer class="footer-section" style="background-image: url({{asset('template/home/assets/images/bg-images/footer-bg.png')}});">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row g-3 justify-content-center g-lg-0">
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="footer-top-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <img src="{{asset('template/home/assets/images/footer/footer-top/01.png')}}" alt="Phone-icon">
-                                </div>
-                                <div class="lab-content">
-                                    <span>Phone Number : +88019 339 702 520</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="footer-top-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <img src="{{asset('template/home/assets/images/footer/footer-top/02.png')}}" alt="email-icon">
-                                </div>
-                                <div class="lab-content">
-                                    <span>Email : admin@Hafsa.com</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-12">
-                        <div class="footer-top-item lab-item">
-                            <div class="lab-inner">
-                                <div class="lab-thumb">
-                                    <img src="{{asset('template/home/assets/images/footer/footer-top/03.png')}}" alt="location-icon">
-                                </div>
-                                <div class="lab-content">
-                                    <span>Address : 30 North West New York 240</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-middle padding-tb tri-shape-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="footer-middle-item-wrapper">
-                            <div class="footer-middle-item mb-5 mb-lg-0">
-                                <div class="fm-item-title">
-                                    <h5>About Hafsa</h5>
-                                </div>
-                                <div class="fm-item-content">
-                                    <p class="mb-4">Energistically coordinate highly efficient procesr
-                                        partnerships befor revolutionar growth strategie
-                                        improvement</p>
-                                    <img src="{{asset('template/home/assets/images/footer/footer-middle/01.jpg')}}" alt="about-image"
-                                        class="footer-abt-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="footer-middle-item-wrapper">
-                            <div class="footer-middle-item mb-5 mb-lg-0">
-                                <div class="fm-item-title">
-                                    <h5>our Recent news</h5>
-                                </div>
-                                <div class="fm-item-content">
-                                    <div class="fm-item-widget lab-item">
-                                        <div class="lab-inner">
-                                            <div class="lab-thumb">
-                                                <a href="#"> <img src="{{asset('template/home/assets/images/footer/footer-middle/02.jpg')}}"
-                                                        alt="footer-widget-img"></a>
-                                            </div>
-                                            <div class="lab-content">
-                                                <h6><a href="#">Enable Seamin Matera Forin And Our
-                                                        Orthonal Create Vortals.</a></h6>
-                                                <p>July 23, 2021</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="fm-item-widget lab-item">
-                                        <div class="lab-inner">
-                                            <div class="lab-thumb">
-                                                <a href="#"><img src="{{asset('template/home/assets/images/footer/footer-middle/03.jpg')}}"
-                                                        alt="footer-widget-img"></a>
-                                            </div>
-                                            <div class="lab-content">
-                                                <h6><a href="#">Dynamca Network Otuitive Catays For
-                                                        Plagiarize Mindshare After</a></h6>
-                                                <p>July 23, 2021</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="footer-middle-item-wrapper">
-                            <div class="footer-middle-item-3 mb-5 mb-lg-0">
-                                <div class="fm-item-title">
-                                    <h5>OUR NEWSLETTER</h5>
-                                </div>
-                                <div class="fm-item-content">
-                                    <p>Hafsa is a nonproﬁt organization supported
-                                        by community leaders</p>
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Enter email">
-                                        </div>
-                                        <button type="submit" class="lab-btn">Send Massage <i
-                                                class="icofont-paper-plane"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="footer-bottom-content text-center">
-                            <p>&copy;2021 <a href="#">Hafsa</a> - dikelola oleh Tim Multimedia Masjid Raya Annur Polinema.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section end here -->
-
-
-
-    <!-- scrollToTop start here -->
-    <a href="#" class="scrollToTop"><i class="icofont-bubble-up"></i><span class="pluse_1"></span><span
-            class="pluse_2"></span></a>
-    <!-- scrollToTop ending here -->
-
-    <script src="{{asset('template/home/assets/js/jquery.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/fontawesome.min.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/waypoints.min.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/swiper.min.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/circularProgressBar.min.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/isotope.pkgd.min.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/lightcase.js')}}"></script>
-    <script src="{{asset('template/home/assets/js/functions.js')}}"></script>
-</body>
-
-</html>
+@stop
