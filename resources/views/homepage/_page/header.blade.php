@@ -60,7 +60,7 @@
                                         <a href="/about">Tentang</a>
                                     </li>
                                     <li>
-                                        <a href="#">Kegiatan</a>                                        
+                                        <a href="/kegiatan">Kegiatan</a>                                        
                                     </li>                                                                   
                                     <li>
                                         <a href="/galery">Galery</a>                                        

@@ -27,4 +27,12 @@ Route::get('/about', function () {
 Route::get('/galery', function () {
     return view('homepage/galery');
 });
-
+Route::get('/contact', function () {
+    return view('homepage/contact');
+});
+Route::get('/kegiatan', function () {
+    return view('homepage/kegiatan/index');
+});
+Route::get('/detailKegiatan', function () {
+    return view('homepage/kegiatan/detail');
+});
