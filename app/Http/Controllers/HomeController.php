@@ -26,4 +26,14 @@ class HomeController extends Controller
     public function contact(){
         return view('homepage/contact');
     }
+
+    /* Contact View */
+    public function kegiatan(){
+        return view('homepage/kegiatan/index');
+    }
+
+    /* Contact View */
+    public function detailKegiatan(){
+        return view('homepage/kegiatan/detail');
+    }
 }

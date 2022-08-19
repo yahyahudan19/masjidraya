@@ -12,4 +12,9 @@ class AdminController extends Controller
         return view('admin/index');
     }
 
+    /* Kegiatan View */
+    public function kegiatan(){
+        return view('admin/kegiatan/index');
+    }
+
 }

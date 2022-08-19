@@ -1,13 +1,14 @@
 @extends('homepage._page.master')
+@section('title','Kegiatan')
 @section('banner')
 <section class="page-header bg_img padding-tb">
         <div class="overlay"></div>
         <div class="container">
             <div class="page-header-content-area">
-                <h4 class="ph-title">Kegiatan kami</h4>
+                <h4 class="ph-title" style="font-family: Montserrat">Kegiatan <br>Masjid Raya An-Nur Polinema</h4>
                 <ul class="lab-ul">
                     <li><a href="index.html">Home</a></li>
-                    <li><a class="#">Kegiatan kam</a></li>
+                    <li><a class="#">Kegiatan kami</a></li>
                 </ul>
             </div>
         </div>
@@ -31,13 +32,13 @@
                             </div>
                             <div class="event-top-content">
                                 <div class="event-top-content-wrapper">
-                                    <h3><a href="#">Kegiatan Ramadhan 1443 H </a> </h3>
+                                    <h3><a href="/kegiatan/detail">Kegiatan Pekan Islami 2022 </a> </h3>
                                     <div class="date-count-wrapper">
                                         <ul class="lab-ul event-date">
-                                            <li><i class="icofont-calendar"></i> <span>April 02,2022</span></li>
+                                            <li><i class="icofont-calendar"></i> <span>September 02,2022</span></li>
                                             <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
                                         </ul>
-                                        <ul class="lab-ul event-count" data-date="April 02, 2022 21:14:01">
+                                        <ul class="lab-ul event-count" data-date="September 02, 2022 21:14:01">
                                             <li>
                                                 <span class="days">34</span>
                                                 <div class="count-text">Days</div>
@@ -85,7 +86,7 @@
                                                 <img src="{{asset('template/home/assets/images/event/03.jpg')}}" alt="event-image">
                                             </div>
                                             <div class="lab-content">
-                                                <h5><a href="#">Kajian Rutin Muslimah : Tutorial Sholat </a> </h5>
+                                                <h5><a href="/kegiatan/detail">Kajian Rutin Muslimah : Tutorial Sholat </a> </h5>
                                                 <ul class="lab-ul event-date">
                                                     <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
                                                     </li>
@@ -102,7 +103,7 @@
                                                 <img src="{{asset('template/home/assets/images/event/04.jpg')}}" alt="event-image">
                                             </div>
                                             <div class="lab-content">
-                                                <h5><a href="#"> Sholat & Khutbah Jum'at bersama Ust. Muwidha</a></h5>
+                                                <h5><a href="/kegiatan/detail"> Sholat & Khutbah Jum'at bersama Ust. Muwidha</a></h5>
                                                 <ul class="lab-ul event-date">
                                                     <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
                                                     </li>

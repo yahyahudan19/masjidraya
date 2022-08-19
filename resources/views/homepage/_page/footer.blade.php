@@ -100,8 +100,7 @@
                                     <h5>OUR NEWSLETTER</h5>
                                 </div>
                                 <div class="fm-item-content">
-                                    <p>Hafsa is a nonproﬁt organization supported
-                                        by community leaders</p>
+                                    <p>Masjid Raya An-Nur Polinema supported by Politeknik Negeri Malang </p>
                                     <form>
                                         <div class="form-group">
                                             <input type="email" class="form-control" placeholder="Enter email">

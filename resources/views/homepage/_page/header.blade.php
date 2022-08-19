@@ -44,7 +44,7 @@
                                     <a href="#"><i class="fab fa-skype"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fas fa-wifi"></i></a>
+                                    <a href="/login"><i class="fas fa-sign-in-alt"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -68,11 +68,11 @@
                                     <li>
                                         <a href="#">Artikel</a>                                        
                                     </li>                                                                   
-                                    <li><a href="/contact">Kontak</a></li>
+                                    <li><a href="/contact">Kontak</a>
+                                    </li>
                                 </ul>
                                 <div class="prayer-time d-none d-lg-block">
-                                    <a href="#" class="prayer-time-btn"><i class="icofont-clock-time"></i> Today Prayer
-                                        Time</a>
+                                    <a href="#" class="prayer-time-btn"><i class="icofont-clock-time"></i> Jadwal Waktu Sholat</a>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,21 +24,15 @@ Route::get('/login', function () {
 });
 
 /* Homepage Routes */
-Route::get('/home', function () {
-    return view('homepage/index');
-});
-Route::get('/about', function () {
-    return view('homepage/about');
-});
-Route::get('/galery', function () {
-    return view('homepage/galery');
-});
-Route::get('/contact', function () {
-    return view('homepage/contact');
-});
-Route::get('/kegiatan', function () {
-    return view('homepage/kegiatan/index');
-});
-Route::get('/detailKegiatan', function () {
-    return view('homepage/kegiatan/detail');
-});
+
+Route::get('/home', [HomeController::class,'index']);
+Route::get('/galery', [HomeController::class,'galery']);
+Route::get('/about', [HomeController::class,'about']);
+Route::get('/contact', [HomeController::class,'contact']);
+Route::get('/kegiatan', [HomeController::class,'kegiatan']);
+Route::get('/kegiatan/detail', [HomeController::class,'detailKegiatan']);
+
+/* Admin Routes */
+Route::get('/admin', [AdminController::class,'index']);
+Route::get('/admin/kegiatan', [AdminController::class,'kegiatan']);
+

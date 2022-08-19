@@ -791,7 +791,7 @@ body.sidebar-hidden .page-header .navbar #navbarNav #leftNav > li > a#sidebar-to
 
 .page-header .navbar .navbar-brand {
     margin-right: 0;
-    background: url('../images/logo@2x.png') center center no-repeat;
+    background: url('../images/logoraya.png') center center no-repeat;
     background-size: cover;
     width: 40px;
     height: 40px;
@@ -2712,7 +2712,7 @@ body.error-page .container {
     border-radius: 15px;
     z-index: 1;
     height: 350px;
-    background: url(../images/profile-bg.jpg) center center no-repeat;
+    background: url(../images/bg_besar.JPG) center center no-repeat;
     background-size: cover;
 }
 

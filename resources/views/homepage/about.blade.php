@@ -1,13 +1,14 @@
 @extends('homepage._page.master')
+@section('title','About')
 @section('banner')
 <section class="page-header bg_img padding-tb">
         <div class="overlay"></div>
         <div class="container">
             <div class="page-header-content-area">
-                <h4 class="ph-title">About Masjid Raya Annur Polinema</h4>
+                <h4 class="ph-title" style="font-family: Montserrat">Tentang Kami <br> Masjid Raya Annur Polinema</h4>
                 <ul class="lab-ul">
                     <li><a href="/home">Home</a></li>
-                    <li><a class="active">Tentang</a></li>
+                    <li><a class="#">Tentang</a></li>
                 </ul>
             </div>
         </div>
@@ -47,7 +48,7 @@
                                         <div class="about-circle"></div>
                                     </div>
                                     <div class="about-fg-img">
-                                        <img src="{{asset('template/home/assets/images/logo_hitam.png')}}" alt="about-image">
+                                        <img src="{{asset('template/home/assets/images/logoputih1.png')}}" alt="about-image">
                                     </div>
                                 </div>
                             </div>

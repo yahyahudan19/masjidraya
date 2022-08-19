@@ -1,10 +1,11 @@
 @extends('homepage._page.master')
+@section('title','Galery')
 @section('banner')
 <section class="page-header bg_img padding-tb">
         <div class="overlay"></div>
         <div class="container">
             <div class="page-header-content-area">
-                <h4 class="ph-title" style="font-family: Montserrat">Galery Masjid Raya Annur Polinema</h4>
+                <h4 class="ph-title" style="font-family: Montserrat">Galery Kegiatan <br> Masjid Raya Annur Polinema</h4>
                 <ul class="lab-ul">
                     <li><a href="/home">Home</a></li>
                     <li><a href="#">Galery</a></li>

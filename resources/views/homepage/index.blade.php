@@ -1,4 +1,5 @@
 @extends('homepage._page.master')
+@section('title','Homepage')
 @section('banner')
     <section class="banner-section">
         <div class="container">
@@ -63,7 +64,7 @@
                                         <div class="about-circle"></div>
                                     </div>
                                     <div class="about-fg-img">
-                                        <img src="{{asset('template/home/assets/images/logo_hitam.png')}}" alt="about-image">
+                                        <img src="{{asset('template/home/assets/images/logoputih1.png')}}" alt="about-image">
                                     </div>
                                 </div>
                             </div>

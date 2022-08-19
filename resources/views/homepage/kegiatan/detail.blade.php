@@ -4,7 +4,7 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="page-header-content-area">
-                <h4 class="ph-title">Kultum Rutin Dhuhur</h4>
+                <h4 class="ph-title" style="font-family: Montserrat">Kultum Rutin Dhuhur</h4>
                 <ul class="lab-ul">
                     <li><a href="/home">Home</a></li>
                     <li><a href="/kegiatan">Kegiatan</a></li>
@@ -112,8 +112,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="widget widget-ad mb-5">
+                            {{-- <div class="widget widget-ad mb-5">
                                 <div class="widget-header">
                                     <h5>Ad Banner Place</h5>
                                 </div>
@@ -121,7 +120,7 @@
                                     <a href="#"><img src="{{asset('template/home/assets/images/program/program-single/ad-banner.jpg')}}"
                                             alt="ad-banner"></a>
                                 </div>
-                            </div>                            
+                            </div>                             --}}
                         </aside>
                     </div>
                 </div>

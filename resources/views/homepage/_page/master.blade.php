@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-    <title>Masjid Raya Annur Polinema</title>
+    <title> @yield('title') | Masjid Raya Annur Polinema</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
