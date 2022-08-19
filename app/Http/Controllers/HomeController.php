@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
-    {
-        //
-    }
+    /* Hompage View */
     public function index(){
-        
+        return view('homepage/index');
     }
+
+    /* About View */
     public function about(){
-        
+        return view('homepage/about');
+    }
+    
+    /* Galery View */
+    public function galery(){
+        return view('homepage/galery');
+    }
+
+    /* Contact View */
+    public function contact(){
+        return view('homepage/contact');
     }
 }
