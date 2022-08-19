@@ -26,13 +26,13 @@
                                     <h5>Tentang Kami</h5>
                                     <h2 class="mb-0">Ketakmiran Masjid Raya Annur Polinema</h2>
                                 </div>
-                                <h5 class="my-4">Our Promise To Uphold The Trust Placed.</h5>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi molestias culpa
-                                    reprehenderit delectus, ullam harum, voluptatum numquam ati nesciunt odit quis
-                                    corrupti magni quam consequatur sint ipsum tecto exercitationem, illo quisquam.
-                                    Reprehenderit ut placeat cum adantium nam magnam blanditiis sequi modi! Nesciunt,
-                                    repudiandae eos eniam quod maxime corrupti eligendi ea in animi.</p>
-                                <a href="#" class="lab-btn mt-4">Ask About Islam <i class="icofont-heart-alt"></i></a>
+                                <br>
+                                {{-- <h5 class="my-4">Our Promise To Uphold The Trust Placed.</h5> --}}
+                                <p>Masjid Raya Annur Polinema diresmikan pada tanggal 18 Maret 2018 oleh bapak menteri kemendikbud, 
+                                    dan merupakan salah satu masjid kampus yang besar dan nyaman, sehingga jamaah yang mengunjungi masjid ini 
+                                    akan merasa nyaman dalam beribadah. ea
+                                    </p>
+                                <a href="#" class="lab-btn mt-4">Kunjungi Kami <i class="icofont-heart-alt"></i></a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                         <div class="about-circle"></div>
                                     </div>
                                     <div class="about-fg-img">
-                                        <img src="assets/images/about/02.png" alt="about-image">
+                                        <img src="{{asset('template/home/assets/images/logo_hitam.png')}}" alt="about-image">
                                     </div>
                                 </div>
                             </div>
@@ -67,11 +67,12 @@
                     <div class="lab-item feature-item text-xs-center">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="assets/images/feature/01.png" alt="feature-image">
+                                <img src="{{asset('template/home/assets/images/feature/01.png')}}" alt="feature-image">
                             </div>
                             <div class="lab-content">
-                                <h5>Quran Studies</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
+                                <h5>Al-Quran Study Club</h5>
+                                <p>bertujuan untuk menunjang mahasiswa/masyarakat umum
+                                    yang akan belajar tentang Al-Quran
                                 </p>
                                 <a href="#" class="text-btn">Sponsor Now!</a>
                             </div>
@@ -82,43 +83,31 @@
                     <div class="lab-item feature-item">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="assets/images/feature/02.png" alt="feature-image">
+                                <img src="{{asset('template/home/assets/images/feature/02.png')}}" alt="feature-image">
                             </div>
                             <div class="lab-content">
-                                <h5>Islamic Classes</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
+                                <h5>Kultum Dhuhur</h5>
+                                <p>Kultum Dhuhur ini rutin kami adakan setiap hari Senin-Kamis 
+                                    setelah Sholat Dhuhur Berjama’ah.
                                 </p>
-                                <a href="#" class="text-btn">Donate Now!</a>
+                                <a href="#" class="text-btn">Join Now!</a>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="lab-item feature-item">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="assets/images/feature/03.png" alt="feature-image">
+                                <img src="{{asset('template/home/assets/images/feature/04.png')}}" alt="feature-image">
                             </div>
                             <div class="lab-content">
-                                <h5>Islamic Awareness</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
+                                <h5>Majlis Sholawat </h5>
+                                <h5>Polinema</h5>
+                                <p>di selenggarakan pada setiap hari Kamis Awal Bulan Ba'da Sholat Maghrib  diisi dengan grup albanjari 
+                                    dari Polinema Syifaul Qolbi
                                 </p>
                                 <a href="#" class="text-btn">Join Us!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="lab-item feature-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/feature/04.png" alt="feature-image">
-                            </div>
-                            <div class="lab-content">
-                                <h5>Islamic Services</h5>
-                                <p>Lorem ipsum dolor sit, amet is consectetur adipisicing elit.Its expedita porro natus
-                                </p>
-                                <a href="#" class="text-btn">Get Involved!</a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +133,7 @@
                             <div class="card text-center border-none team-item-1">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="assets/images/team/01.jpg" class="card-img-top" alt="product">
+                                        <img src="{{asset('template/home/assets/images/team/01.jpg')}}" class="card-img-top" alt="product">
                                     </div>
                                     <div class="lab-content">
                                         <a href="#">
@@ -166,7 +155,7 @@
                             <div class="card text-center border-none team-item-1">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="assets/images/team/02.jpg" class="card-img-top" alt="product">
+                                        <img src="{{asset('template/home/assets/images/team/02.jpg')}}" class="card-img-top" alt="product">
                                     </div>
                                     <div class="lab-content">
                                         <a href="#">
@@ -188,7 +177,7 @@
                             <div class="card text-center border-none team-item-1">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="assets/images/team/03.jpg" class="card-img-top" alt="product">
+                                        <img src="{{asset('template/home/assets/images/team/03.jpg')}}" class="card-img-top" alt="product">
                                     </div>
                                     <div class="lab-content">
                                         <a href="#">

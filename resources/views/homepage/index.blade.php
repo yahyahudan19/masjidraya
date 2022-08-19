@@ -63,7 +63,7 @@
                                         <div class="about-circle"></div>
                                     </div>
                                     <div class="about-fg-img">
-                                        <img src="{{asset('template/home/assets/images/about/02.png')}}" alt="about-image">
+                                        <img src="{{asset('template/home/assets/images/logo_hitam.png')}}" alt="about-image">
                                     </div>
                                 </div>
                             </div>
@@ -149,21 +149,21 @@
                             <div class="lab-item service-item">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="{{asset('template/home/assets/images/service/01.jpg')}}" alt="Service-image">
+                                        <img src="{{asset('template/home/assets/images/service/01.png')}}" alt="Service-image">
                                     </div>
                                     <div class="lab-content pattern-2">
                                         <div class="lab-content-wrapper">
                                             <div class="content-top">
-                                                <div class="service-top-thumb"><img src="{{asset('template/home/assets/images/service/01.png')}}"
+                                                <div class="service-top-thumb"><img src="{{asset('template/home/assets/images/service/03.png')}}"
                                                         alt="service-icon"></div>
                                                 <div class="service-top-content">
-                                                    <span>Building Upgrades</span>
-                                                    <h5><a href="#"> Mosque Development</a></h5>
+                                                    <span>Akhlak dan Adab</span>
+                                                    <h5><a href="#"> Adab-adab di Masjid</a></h5>
                                                 </div>
                                             </div>
                                             <div class="content-bottom">
-                                                <p>Lorem ipsum, dolor sit amet sectetur adipisicing elit. Vel dicta
-                                                    beatae del voluptas apelas de.</p>
+                                                <p>Artikel ini memberikan penjelasan kepada kita bahwa didalam 
+                                                    masjid kita harus memperhatikan adab</p>
                                                 <a href="#" class="text-btn">Read More +</a>
                                             </div>
                                         </div>
@@ -176,21 +176,20 @@
                             <div class="lab-item service-item">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="{{asset('template/home/assets/images/service/02.jpg')}}" alt="Service-image">
+                                        <img src="{{asset('template/home/assets/images/service/01.png')}}" alt="Service-image">
                                     </div>
                                     <div class="lab-content pattern-2">
                                         <div class="lab-content-wrapper">
                                             <div class="content-top">
-                                                <div class="service-top-thumb"><img src="{{asset('template/home/assets/images/service/02.png')}}"
+                                                <div class="service-top-thumb"><img src="{{asset('template/home/assets/images/service/03.png')}}"
                                                         alt="service-icon"></div>
                                                 <div class="service-top-content">
-                                                    <span>Help Poor</span>
-                                                    <h5><a href="#">Charity And Donation</a> </h5>
+                                                    <span>Kegiatan Rutin</span>
+                                                    <h5><a href="#">Ceramah Dhuhur</a> </h5>
                                                 </div>
                                             </div>
                                             <div class="content-bottom">
-                                                <p>Lorem ipsum, dolor sit amet sectetur adipisicing elit. Vel dicta
-                                                    beatae del voluptas apelas de.</p>
+                                                <p>Ceramah dhuhur inshaallah akan dilaksanakan saat bulan ramadhan 1443H.</p>
                                                 <a href="#" class="text-btn">Read More +</a>
                                             </div>
                                         </div>
@@ -202,7 +201,7 @@
                             <div class="lab-item service-item">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="{{asset('template/home/assets/images/service/03.jpg')}}" alt="Service-image">
+                                        <img src="{{asset('template/home/assets/images/service/01.png')}}" alt="Service-image">
                                     </div>
                                     <div class="lab-content pattern-2">
                                         <div class="lab-content-wrapper">
@@ -210,13 +209,12 @@
                                                 <div class="service-top-thumb"><img src="{{asset('template/home/assets/images/service/03.png')}}"
                                                         alt="service-icon"></div>
                                                 <div class="service-top-content">
-                                                    <span>Donate & Help</span>
-                                                    <h5><a href="#">Poor Woman Marriage</a> </h5>
+                                                    <span>#RamadanBerkah</span>
+                                                    <h5><a href="#">Hukum Sedekah dan Zakat</a> </h5>
                                                 </div>
                                             </div>
                                             <div class="content-bottom">
-                                                <p>Lorem ipsum, dolor sit amet sectetur adipisicing elit. Vel dicta
-                                                    beatae del voluptas apelas de.</p>
+                                                <p>Artikel ini memberikan penjelasan kepada kita hukum dari Sedekah dan Zakat</p>
                                                 <a href="#" class="text-btn">Read More +</a>
                                             </div>
                                         </div>
@@ -405,7 +403,7 @@
                     <div class="event-content">
                         <div class="event-top tri-shape-2 pattern-2">
                             <div class="event-top-thumb">
-                                <img src="{{asset('template/home/assets/images/event/01.jpg')}}" alt="Upcoming-event">
+                                <img src="{{asset('template/home/assets/images/event/ramadhan1443h.png')}}" alt="Upcoming-event">
                             </div>
                             <div class="event-top-content">
                                 <div class="event-top-content-wrapper">
