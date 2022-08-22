@@ -34,5 +34,8 @@ Route::get('/kegiatan/detail', [HomeController::class,'detailKegiatan']);
 
 /* Admin Routes */
 Route::get('/admin', [AdminController::class,'index']);
+
+/* Kegiatan Routes */
 Route::get('/admin/kegiatan', [AdminController::class,'kegiatan']);
+Route::get('/admin/kegiatan/add', [AdminController::class,'addKegiatan']);
 
