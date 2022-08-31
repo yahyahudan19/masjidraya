@@ -1,63 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Responsive Admin Dashboard Template">
-        <meta name="keywords" content="admin,dashboard">
-        <meta name="author" content="stacks">
-        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
         <!-- favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('template/home/assets/images/x-icon/logo.png')}}">
 
         <!-- Title -->
         <title> @yield('title') | Masjid Raya An-Nur Polinema</title>
 
-        <!-- Styles -->
-        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
-        <link href="{{asset('template/admin/theme/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{asset('template/admin/theme/assets/plugins/font-awesome/css/all.min.css')}}" rel="stylesheet">
-        <link href="{{asset('template/admin/theme/assets/plugins/perfectscroll/perfect-scrollbar.css')}}" rel="stylesheet">
-        <link href="{{asset('template/admin/theme/assets/plugins/apexcharts/apexcharts.css')}}" rel="stylesheet">
-        <link href="{{asset('template/admin/theme/assets/plugins/DataTables/datatables.min.css')}}" rel="stylesheet">   
+        <meta content="Admin Dashboard" name="description" />
+        <meta content="Mannatthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+        {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
 
-      
-        <!-- Theme Styles -->
-        <link href="{{asset('template/admin/theme/assets/css/main.min.css')}}" rel="stylesheet">
-        <link href="{{asset('template/admin/theme/assets/css/custom.css')}}" rel="stylesheet">
+        <link href="{{asset('template/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('template/admin/assets/css/icons.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('template/admin/assets/css/style.css')}}" rel="stylesheet" type="text/css">
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+         <!-- DataTables -->
+         <link href="{{asset('template/admin/assets/plugins/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+         <link href="{{asset('template/admin/assets/plugins/datatables/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+         <!-- Responsive datatable examples -->
+         <link href="{{asset('template/admin/assets/plugins/datatables/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+         
+         <!-- Dropify -->
+        <link href="{{asset('template/admin/assets/plugins/dropify/css/dropify.min.css')}}" rel="stylesheet">
+
     </head>
-    <body>
 
-        <div class="page-container">
-            <!-- Header -->
-            @include('admin._page.header')
-            <!-- Sidebar -->
+
+    <body class="fixed-left">
+
+        <!-- Loader -->
+        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
             @include('admin._page.sidebar')
-            <!-- Content -->
-            @yield('content')
+            <!-- Left Sidebar End -->
+
+            <!-- Start right Content here -->
+           
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+              
+                    <!-- Top Bar Start -->
+                    @include('admin._page.header')
+                    <!-- Top Bar End -->
+                    
+                    @yield('content')
+                    <!-- Page content Wrapper -->
+              
+                </div> <!-- content -->
+              
+                <footer class="footer">
+                    © 2022 Admin Masjid Raya An-Nur Polinema.
+                </footer>
+              
+              </div>
+            <!-- End Right content here -->
+
         </div>
+        <!-- END wrapper -->
+
+
+        <!-- jQuery  -->
+        <script src="{{asset('template/admin/assets/js/jquery.min.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/popper.min.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/modernizr.min.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/detect.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/fastclick.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/jquery.slimscroll.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/jquery.blockUI.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/waves.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/jquery.nicescroll.js')}}"></script>
+        <script src="{{asset('template/admin/assets/js/jquery.scrollTo.min.js')}}"></script>
+
+        <script src="{{asset('template/admin/assets/plugins/chart.js/chart.min.js')}}"></script>
+        <script src="{{asset('template/admin/assets/pages/dashboard.js')}}"></script>
+
+        <!-- App js -->
+        <script src="{{asset('template/admin/assets/js/app.js')}}"></script>
+
+         <!-- Required datatable js -->
+         <script src="{{asset('template/admin/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
+         <!-- Buttons examples -->
+         <script src="{{asset('template/admin/assets/plugins/datatables/dataTables.buttons.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/buttons.bootstrap4.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/jszip.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/pdfmake.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/vfs_fonts.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/buttons.html5.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/buttons.print.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/buttons.colVis.min.js')}}"></script>
+         <!-- Responsive examples -->
+         <script src="{{asset('template/admin/assets/plugins/datatables/dataTables.responsive.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/plugins/datatables/responsive.bootstrap4.min.js')}}"></script>
+ 
+         <!-- Datatable init js -->
+         <script src="{{asset('template/admin/assets/pages/datatables.init.js')}}"></script>
+         
+         <!-- Dropify init js -->
+         <script src="{{asset('template/admin/assets/plugins/dropify/js/dropify.min.js')}}"></script>
+         <script src="{{asset('template/admin/assets/pages/dropify.init.js')}}"></script>
         
-        <!-- Javascripts -->
-        <script src="{{asset('template/admin/theme/assets/plugins/jquery/jquery-3.4.1.min.js')}}"></script>
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script src="{{asset('template/admin/theme/assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-        <script src="https://unpkg.com/feather-icons"></script>
-        <script src="{{asset('template/admin/theme/assets/plugins/perfectscroll/perfect-scrollbar.min.js')}}"></script>
-        <script src="{{asset('template/admin/theme/assets/plugins/apexcharts/apexcharts.min.js')}}"></script>
-        <script src="{{asset('template/admin/theme/assets/js/main.min.js')}}"></script>
-        <script src="{{asset('template/admin/theme/assets/js/pages/dashboard.js')}}"></script>
-        <script src="{{asset('template/admin/theme/assets/plugins/DataTables/datatables.min.js')}}"></script>
-        <script src="{{asset('template/admin/theme/assets/js/pages/datatables.js')}}"></script>
 
     </body>
 </html>

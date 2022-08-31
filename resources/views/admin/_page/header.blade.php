@@ -1,65 +1,118 @@
-<div class="page-header">
-  <nav class="navbar navbar-expand-lg d-flex justify-content-between">
-    <div class="" id="navbarNav">
-      <ul class="navbar-nav" id="leftNav">
-        <li class="nav-item">
-          <a class="nav-link" id="sidebar-toggle" href="#"><i data-feather="arrow-left"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home">Homepage</a>
-        </li>
-        {{--<li class="nav-item">
-          <a class="nav-link" href="#"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Help</a>
-        </li> --}}
-      </ul>
-      </div>
-      <div class="logo">
-        <a class="navbar-brand" href="#"></a>
-      </div>
-      <div class="" id="headerNav">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link search-dropdown" href="#" id="searchDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i data-feather="search"></i></a>
-            <div class="dropdown-menu dropdown-menu-end dropdown-lg search-drop-menu" aria-labelledby="searchDropDown">
-              <form>
-                <input class="form-control" type="text" placeholder="Type something.." aria-label="Search">
-              </form>
-              <h6 class="dropdown-header">Recent Searches</h6>
-              <a class="dropdown-item" href="#">charts</a>              
-            </div>
-          </li>
-          {{-- <li class="nav-item dropdown">
-            <a class="nav-link notifications-dropdown" href="#" id="notificationsDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">3</a>
-            <div class="dropdown-menu dropdown-menu-end notif-drop-menu" aria-labelledby="notificationsDropDown">
-              <h6 class="dropdown-header">Notifications</h6>
-              <a href="#">
-                <div class="header-notif">
-                  <div class="notif-image">
-                    <span class="notification-badge bg-info text-white">
-                      <i class="fas fa-bullhorn"></i>
-                    </span>
-                  </div>
-                  <div class="notif-text">
-                    <p class="bold-notif-text">faucibus dolor in commodo lectus mattis</p>
-                    <small>19:00</small>
-                  </div>
+<div class="topbar">
+              
+    <nav class="navbar-custom">
+
+        <ul class="list-inline float-right mb-0">
+            
+            {{-- <li class="list-inline-item dropdown notification-list">
+                <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <i class="dripicons-mail noti-icon"></i>
+                    <span class="badge badge-danger noti-icon-badge">5</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                    <!-- item-->
+                    <div class="dropdown-item noti-title">
+                        <h5><span class="badge badge-danger float-right">745</span>Messages</h5>
+                    </div>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <div class="notify-icon"><img src="{{asset('template/admin/assets/images/users/avatar-2.jpg')}}" alt="user-img" class="img-fluid rounded-circle" /> </div>
+                        <p class="notify-details"><b>Charles M. Jones</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <div class="notify-icon"><img src="{{asset('template/admin/assets/images/users/avatar-3.jpg')}}" alt="user-img" class="img-fluid rounded-circle" /> </div>
+                        <p class="notify-details"><b>Thomas J. Mimms</b><small class="text-muted">You have 87 unread messages</small></p>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <div class="notify-icon"><img src="{{asset('template/admin/assets/images/users/avatar-4.jpg')}}" alt="user-img" class="img-fluid rounded-circle" /> </div>
+                        <p class="notify-details"><b>Luis M. Konrad</b><small class="text-muted">It is a long established fact that a reader will</small></p>
+                    </a>
+
+                    <!-- All-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item border-top">
+                        View All
+                    </a>
+
                 </div>
-              </a>              
-            </div>
-          </li> --}}
-          <li class="nav-item dropdown">
-            <a class="nav-link profile-dropdown" href="#" id="profileDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('template/admin/theme/assets/images/logoraya.png')}}" alt=""></a>
-            <div class="dropdown-menu dropdown-menu-end profile-drop-menu" aria-labelledby="profileDropDown">
-              <a class="dropdown-item" href="#"><i data-feather="user"></i>Profile</a>
-              <a class="dropdown-item" href="#"><i data-feather="inbox"></i>Messages</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/login"><i data-feather="log-out"></i>Logout</a>
-            </div>
-          </li>
+            </li>
+
+            <li class="list-inline-item dropdown notification-list">
+                <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <i class="dripicons-bell noti-icon"></i>
+                    <span class="badge badge-success noti-icon-badge">2</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                    <!-- item-->
+                    <div class="dropdown-item noti-title">
+                        <h5><span class="badge badge-danger float-right">87</span>Notification</h5>
+                    </div>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                        <p class="notify-details"><b>Your order is placed</b><small class="text-muted">Dummy text of the printing and typesetting industry.</small></p>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <div class="notify-icon bg-success"><i class="mdi mdi-message"></i></div>
+                        <p class="notify-details"><b>New Message received</b><small class="text-muted">You have 87 unread messages</small></p>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <div class="notify-icon bg-warning"><i class="mdi mdi-glass-cocktail"></i></div>
+                        <p class="notify-details"><b>Your item is shipped</b><small class="text-muted">It is a long established fact that a reader will</small></p>
+                    </a>
+                    
+                    <!-- All-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item border-top">
+                        View All 
+                    </a>
+
+                </div>
+            </li> --}}
+
+            <li class="list-inline-item dropdown notification-list">
+                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                   aria-haspopup="false" aria-expanded="false">
+                    <img src="{{asset('template/home/assets/images/logo_putih.png')}}" alt="user" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                    <!-- item-->
+                    <div class="dropdown-item noti-title">
+                        <h5>Admin</h5>
+                    </div>
+                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
+                    {{-- <a class="dropdown-item" href="#"><span class="badge badge-success float-right">5</span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a> --}}
+                    <a class="dropdown-item" href="#"><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                </div>
+            </li>
         </ul>
-    </div>
-  </nav>
+
+        <ul class="list-inline menu-left mb-0">
+            <li class="float-left">
+                <button class="button-menu-mobile open-left waves-light waves-effect">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+            </li>
+            <li class="hide-phone app-search">
+                <form role="search" class="">
+                    <input type="text" placeholder="Search..." class="form-control">
+                    <a href=""><i class="fas fa-search"></i></a>
+                </form>
+            </li>
+        </ul>
+
+        <div class="clearfix"></div>
+    </nav>
 </div>

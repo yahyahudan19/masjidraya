@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     /* Dashboard View */
     public function index(){
-        return view('admin/index');
+    return view('admin/index');
     }
 
     /* Kegiatan View */
