@@ -22,12 +22,13 @@
       <div class="row">
         <div class="col-lg-12">
             <div class="card">
-            <h2>Selamat Datang, Syamsul Arifin</h2>
+            <h2>Selamat Datang, {{auth()->user()->name}}</h2>
             </div>                                
         </div> <!-- end col -->
     </div>
+    @if(auth()->user()->role == 'Admin')
       <div class="row">
-          <div class="col-lg-9">
+          <div class="col-lg-12">
               <div class="row">
                   <div class="col-lg-3">
                       <div class="card">
@@ -39,7 +40,7 @@
                                       </div>
                                       <div class="col-10 text-right">
                                           <h5 class="mt-0 mb-1">190</h5>
-                                          <p class="mb-0 font-12 text-muted">Artikel</p>   
+                                          <p class="mb-0 font-12 text-muted">Kegiatan</p>   
                                       </div>
                                   </div>                                                        
                               </div>
@@ -52,17 +53,36 @@
                               <div class="icon-contain">
                                   <div class="row">
                                       <div class="col-2 align-self-center">
-                                          <i class="far fa-gem text-gradient-danger"></i>
+                                          <i class="fas fa-book text-gradient-danger"></i>
                                       </div>
                                       <div class="col-10 text-right">
                                           <h5 class="mt-0 mb-1">62</h5>
-                                          <p class="mb-0 font-12 text-muted">Project</p>
+                                          <p class="mb-0 font-12 text-muted">Artikel</p>
                                       </div>
                                   </div>                                                        
                               </div>
                           </div>
                       </div>
                   </div>
+
+                  <div class="col-lg-3">
+                    <div class="card ">
+                        <div class="card-body">
+                            <div class="icon-contain">
+                                <div class="row">
+                                    <div class="col-2 align-self-center">
+                                        <i class="fas fa-camera text-gradient-primary"></i>
+                                    </div>
+                                    <div class="col-10 text-right">
+                                        <h5 class="mt-0 mb-1">23</h5>
+                                        <p class="mb-0 font-12 text-muted">Gallery</p>    
+                                    </div>
+                                </div>                                                        
+                            </div>                                                    
+                        </div>
+                    </div>
+                </div>    
+                                
                   <div class="col-lg-3">
                       <div class="card">
                           <div class="card-body">
@@ -80,27 +100,53 @@
                           </div>
                       </div>
                   </div>
-                  <div class="col-lg-3">
-                      <div class="card ">
-                          <div class="card-body">
-                              <div class="icon-contain">
-                                  <div class="row">
-                                      <div class="col-2 align-self-center">
-                                          <i class="fas fa-database text-gradient-primary"></i>
-                                      </div>
-                                      <div class="col-10 text-right">
-                                          <h5 class="mt-0 mb-1">$15562</h5>
-                                          <p class="mb-0 font-12 text-muted">Budget</p>    
-                                      </div>
-                                  </div>                                                        
-                              </div>                                                    
-                          </div>
-                      </div>
-                  </div>                                             
+                                           
               </div>                                    
           </div>                            
       </div>
-   
+    @else
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body justify-content-center">
+                            <div class="icon-contain">
+                                <div class="row">
+                                    <div class="col-2 align-self-center">
+                                        <i class="fas fa-book text-gradient-danger"></i>
+                                    </div>
+                                    <div class="col-10 text-right">
+                                        <h5 class="mt-0 mb-1">5</h5>
+                                        <p class="mb-0 font-12 text-muted">Total Artikel</p>
+                                    </div>
+                                </div>                                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body justify-content-center">
+                            <div class="icon-contain">
+                                <div class="row">
+                                    <div class="col-2 align-self-center">
+                                        <i class="fas fa-book text-gradient-success"></i>
+                                    </div>
+                                    <div class="col-10 text-right">
+                                        <h5 class="mt-0 mb-1">2</h5>
+                                        <p class="mb-0 font-12 text-muted">Artikel Terverifikasi</p>
+                                    </div>
+                                </div>                                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                                                     
+            </div>                                    
+        </div>                            
+    </div>
+    @endif
       <!-- end row -->
       
   </div><!-- container -->

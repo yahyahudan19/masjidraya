@@ -18,8 +18,8 @@ class HomeController extends Controller
     }
     
     /* Galery View */
-    public function galery(){
-        return view('homepage/galery');
+    public function gallery(){
+        return view('homepage/gallery');
     }
 
     /* Contact View */

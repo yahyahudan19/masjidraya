@@ -32,17 +32,17 @@
                     </div>
 
                     <div class="p-3">
-                        <form class="form-horizontal m-t-20" action="/admin">
-
+                        <form class="form-horizontal m-t-20" action="/login" method="POST">
+                            @csrf
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" placeholder="Username">
+                                    <input name="email" class="form-control" type="text" required="" placeholder="Username">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" required="" placeholder="Password">
+                                    <input name="password" class="form-control" type="password" required="" placeholder="Password">
                                 </div>
                             </div>
 

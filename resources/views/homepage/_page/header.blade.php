@@ -63,7 +63,7 @@
                                         <a href="/kegiatan">Kegiatan</a>                                        
                                     </li>                                                                   
                                     <li>
-                                        <a href="/galery">Galery</a>                                        
+                                        <a href="/gallery">Galery</a>                                        
                                     </li>                                                                   
                                     <li>
                                         <a href="#">Artikel</a>                                        

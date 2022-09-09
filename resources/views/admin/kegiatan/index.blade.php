@@ -1,5 +1,5 @@
 @extends('admin._page.master')
-@section('title','Kegiatan')
+@section('title','Manajemen Kegiatan')
 @section('content')
 <div class="page-content-wrapper ">
 
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mt-0 header-title">Kegiatan Masjid Raya An-Nur Polinema</h4>
@@ -28,11 +28,49 @@
                         <div class="button-items">
                             <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-kegiatan-modal-lg"><i class="mdi mdi-plus-box mr-2"></i>Tambah</button>
 
-                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-animation="bounce" data-target=".bs-import-modal-lg"><i class="mdi mdi-file-excel-box mr-2"></i>Import</button>
+                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-animation="bounce" data-target=".bs-import-modal-lg" disabled><i class="mdi mdi-file-excel-box mr-2"></i>Import</button>
 
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="icon-contain">
+                                    <div class="row">
+                                        <div class="col-2 align-self-center">
+                                            <i class="fas fa-tasks text-gradient-success"></i>
+                                        </div>
+                                        <div class="col-10 text-right">
+                                            <h5 class="mt-0 mb-1">10</h5>
+                                            <p class="mb-0 font-12 text-muted">Kegiatan</p>   
+                                        </div>
+                                    </div>                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body justify-content-center">
+                                <div class="icon-contain">
+                                    <div class="row">
+                                        <div class="col-2 align-self-center">
+                                            <i class="fas fa-user-tie text-gradient-danger"></i>
+                                        </div>
+                                        <div class="col-10 text-right">
+                                            <h5 class="mt-0 mb-1">3</h5>
+                                            <p class="mb-0 font-12 text-muted">Pemateri</p>
+                                        </div>
+                                    </div>                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                           
+                </div>                                    
             </div>
         </div>
         <div class="row">
@@ -63,11 +101,11 @@
                                 <td>2022/08/31</td>
                                 <td>Masjid Raya An-Nur Polinema</td>
                                 <td>
-                                    <button type="button" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</button>
+                                    <a type="button" href="#" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</a>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</button>
+                                    <a type="button" href="/admin/kegiatan/detail" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
                                 </td>
                             </tr>
                             <tr>
@@ -77,11 +115,11 @@
                                 <td>2022/08/31</td>
                                 <td>Masjid Raya An-Nur Polinema</td>
                                 <td>
-                                    <button type="button" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</button>
+                                    <a type="button" href="#" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</a>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</button>
+                                    <a type="button" href="#" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</button>
                                 </td>
                             </tr>
                             <tr>
@@ -91,11 +129,11 @@
                                 <td>2022/08/31</td>
                                 <td>Masjid Raya An-Nur Polinema</td>
                                 <td>
-                                    <button type="button" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</button>
+                                    <a type="button" href="#" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</a>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</button>
+                                    <a type="button" href="#" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
                                 </td>
                             </tr>
                             

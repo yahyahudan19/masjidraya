@@ -11,8 +11,8 @@
         <!-- Title -->
         <title> @yield('title') | Masjid Raya An-Nur Polinema</title>
 
-        <meta content="Admin Dashboard" name="description" />
-        <meta content="Mannatthemes" name="author" />
+        <meta content="Admin Dashboard MRA  " name="description" />
+        <meta content="Masjid Raya An-Nur Polinema" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
@@ -70,7 +70,8 @@
         </div>
         <!-- END wrapper -->
 
-
+        <!-- Sweet Alert-->
+        @include('sweetalert::alert')
         <!-- jQuery  -->
         <script src="{{asset('template/admin/assets/js/jquery.min.js')}}"></script>
         <script src="{{asset('template/admin/assets/js/popper.min.js')}}"></script>
@@ -112,6 +113,10 @@
          <!-- Dropify init js -->
          <script src="{{asset('template/admin/assets/plugins/dropify/js/dropify.min.js')}}"></script>
          <script src="{{asset('template/admin/assets/pages/dropify.init.js')}}"></script>
+
+          <!--Wysiwig js-->
+        <script src="{{asset('template/admin/assets/plugins/tinymce/tinymce.min.js')}}"></script>
+        <script src="{{asset('template/admin/assets/pages/form-editor.js')}}"></script>
         
 
     </body>

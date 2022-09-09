@@ -1,5 +1,5 @@
 @extends('homepage._page.master')
-@section('title','Galery')
+@section('title','Gallery')
 @section('banner')
 <section class="page-header bg_img padding-tb">
         <div class="overlay"></div>

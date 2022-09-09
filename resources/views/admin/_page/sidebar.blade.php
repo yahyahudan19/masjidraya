@@ -6,13 +6,17 @@
   <!-- LOGO -->
   <div class="topbar-left">
       <div class="text-center bg-logo">
-          <a href="#" class="logo"><i class="mdi mdi-account text-success"></i> MRAdmin </a>
+        @if(auth()->user()->role == 'Admin')
+          <a href="#" class="logo"><i class="mdi mdi-account text-warning"></i> MRA-Admin </a>
+        @else 
+          <a href="#" class="logo"><i class="mdi mdi-account text-success"></i> MRA-User </a>
+        @endif  
           <!-- <a href="index.html" class="logo"><img src="assets/images/logo.png" height="24" alt="logo"></a> -->
       </div>
   </div>
   <div class="sidebar-user">
       <img src="{{asset('template/home/assets/images/logo_hitam.png')}}" alt="user" class="rounded-circle img-thumbnail mb-1">
-      <h6 class="">Syamsul Arifin</h6> 
+      <h6 class="">{{auth()->user()->name}}</h6> 
       <p class=" online-icon text-dark"><i class="mdi mdi-record text-success"></i>online</p>                    
       <ul class="list-unstyled list-inline mb-0 mt-2">
           <li class="list-inline-item">
@@ -22,11 +26,11 @@
               <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Settings"><i class="dripicons-gear text-dark"></i></a>
           </li>
           <li class="list-inline-item">
-              <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Log out"><i class="dripicons-power text-danger"></i></a>
+              <a href="/logout" class="" data-toggle="tooltip" data-placement="top" title="Log out"><i class="dripicons-power text-danger"></i></a>
           </li>
       </ul>           
   </div>
-
+  @if(auth()->user()->role == 'Admin')
   <div class="sidebar-inner slimscrollleft">
 
       <div id="sidebar-menu">
@@ -34,7 +38,7 @@
               <li class="menu-title">Main</li>
 
               <li>
-                  <a href="/admin" class="waves-effect">
+                  <a href="/dashboard" class="waves-effect">
                       <i class="dripicons-device-desktop"></i>
                       <span> Dashboard</span>
                   </a>
@@ -57,11 +61,40 @@
               <li class="menu-title">Setting</li>
 
               <li>
-                <a href="/admin/profile" class="waves-effect"><i class="dripicons-user"></i><span> Profile </span></a>
+                <a href="#" class="waves-effect"><i class="dripicons-user"></i><span> Profile </span></a>
              </li>
 
           </ul>
       </div>
       <div class="clearfix"></div>
   </div> <!-- end sidebarinner -->
+  @else
+  <div class="sidebar-inner slimscrollleft">
+
+    <div id="sidebar-menu">
+        <ul>
+            <li class="menu-title">Main</li>
+
+            <li>
+                <a href="/dashboard" class="waves-effect">
+                    <i class="dripicons-device-desktop"></i>
+                    <span> Dashboard</span>
+                </a>
+            </li>
+            
+            <li class="menu-title">Manajemen</li>
+            
+            <li>
+              <a href="/user/artikel" class="waves-effect"><i class="dripicons-document"></i><span> Artikel </span></a>
+            </li>
+            <li class="menu-title">Setting</li>
+            <li>
+              <a href="#" class="waves-effect"><i class="dripicons-user"></i><span> Profile </span></a>
+           </li>
+
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div> <!-- end sidebarinner -->
+  @endif
 </div>
