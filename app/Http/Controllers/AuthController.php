@@ -15,11 +15,11 @@ class AuthController extends Controller
     /* Login Process */
     public function login(Request $request){
         if(Auth::attempt($request->only('email','password'))){
-            return redirect('/admin')->with('success', 'Yeay Anda Berhasil Login !');
+            return redirect('/dashboard');
             // return redirect('/admin');
         }else{
             // return redirect('/auth')->with('error', 'User/Pass Anda Salah  !');
-            return redirect('/auth');
+            return redirect('/dashboard');
         }
     }
 

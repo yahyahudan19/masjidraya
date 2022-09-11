@@ -66,7 +66,7 @@
                                         <a href="/gallery">Galery</a>                                        
                                     </li>                                                                   
                                     <li>
-                                        <a href="#">Artikel</a>                                        
+                                        <a href="/artikel">Artikel</a>                                        
                                     </li>                                                                   
                                     <li><a href="/contact">Kontak</a>
                                     </li>

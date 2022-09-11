@@ -43,31 +43,31 @@
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Kegiatan</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Kultum Rutin" id="example-text-input" disabled>
+                                        <input class="form-control" type="text" value="{{$data_kegiatan->nama_kegiatan}}" id="example-text-input" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Pemateri</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-search-input" disabled>
+                                        <input class="form-control" type="text" value="{{$data_kegiatan->pemateri_kegiatan}}" id="example-search-input" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-text-inputt" class="col-sm-2 col-form-label">Lokasi</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Masjid Raya An-Nur Polinema" id="example-email-input" disabled>
+                                        <input class="form-control" type="text" value="{{$data_kegiatan->lokasi_kegiatan}}" id="example-email-input" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-url-input" class="col-sm-2 col-form-label">Link</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="url" value="https://youtube.com" id="example-url-input" disabled>
+                                        <input class="form-control" type="url" value="{{$data_kegiatan->link_kegiatan}}" id="example-url-input" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="datetime-local" value="2022-09-03T13:45:00" id="example-datetime-local-input" disabled>
+                                        <input class="form-control" type="datetime-local" value="{{$data_kegiatan->tanggal_kegiatan}}" id="example-datetime-local-input" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                     <label class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <div class="">
-                                            <img src="{{asset('template/admin/assets/images/small/img-2.jpg')}}" class="img-fluid" alt="Responsive image" disabled>
+                                            <img src="{{asset('images/'.$data_kegiatan->thumbnail_kegiatan)}}" class="img-fluid" alt="Responsive image" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -105,41 +105,45 @@
                             <div class="card-body"> 
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <form class="" action="#">
+                                        <form class="" action="/admin/kegiatan/update" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="form-group row">
+                                                <input class="form-control" type="hidden" name="id_kegiatan" id="id_kegiatan" value="{{$data_kegiatan->id_kegiatan}}">
+
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">Kegiatan</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" value="Kajian Rutin" id="example-text-input">
+                                                    <input class="form-control" type="text" value="{{$data_kegiatan->nama_kegiatan}}" name="nama_kegiatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">Pemateri</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-text-input">
+                                                    <input class="form-control" type="text" value="{{$data_kegiatan->pemateri_kegiatan}}" name="pemateri_kegiatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-sm-2 col-form-label">Lokasi</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="search" value="Masjid Raya An-Nur Polinema " id="example-search-input">
+                                                    <input class="form-control" type="search" value="{{$data_kegiatan->lokasi_kegiatan}}" name="lokasi_kegiatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-url-input" class="col-sm-2 col-form-label">Link Live Streaming</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="url" value="https://youtube.com" id="example-url-input">
+                                                    <input class="form-control" type="url" value="{{$data_kegiatan->link_kegiatan}}" name="link_kegiatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date and time</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="datetime-local" value="2022-08-21T13:45:00" id="example-datetime-local-input">
+                                                    <input class="form-control" type="datetime-local" value="{{$data_kegiatan->tanggal_kegiatan}}" name="tanggal_kegiatan">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Thumbnail</label>
                                                 <div class="col-sm-10">
-                                                    <input type="file" id="input-file-now" class="dropify" />  
+                                                    <input type="file" id="thumbnail_kegiatan" name="thumbnail_kegiatan" class="dropify" required/>  
                                                 </div>
                                             </div>
                                             

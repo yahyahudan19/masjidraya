@@ -1,15 +1,15 @@
 @extends('homepage._page.master')
-@section('title','Detail')
+@section('title','Kegiatan')
 @section('banner')
 <section class="page-header bg_img padding-tb">
         <div class="overlay"></div>
         <div class="container">
             <div class="page-header-content-area">
-                <h4 class="ph-title" style="font-family: Montserrat">Kultum Rutin Dhuhur</h4>
+                <h4 class="ph-title" style="font-family: Montserrat">{{$data_kegiatan->nama_kegiatan}}</h4>
                 <ul class="lab-ul">
                     <li><a href="/home">Home</a></li>
                     <li><a href="/kegiatan">Kegiatan</a></li>
-                    <li><a class="#">Kultum Rutin Dhuhur</a></li>
+                    <li><a class="#">{{$data_kegiatan->nama_kegiatan}}</a></li>
                 </ul>
             </div>
         </div>
@@ -23,16 +23,18 @@
                     <div class="col-xl-8 col-lg-7 col-12">
                         <div class="event-single-wrapper">
                             <div class="event-top event-top-2">
-                                <div class="event-top-thumb">
-                                    <img src="{{asset('template/home/assets/images/event/event-single/01.jpg')}}" alt="Upcoming-event">
-                                </div>
+                                <a href="{{$data_kegiatan->link_kegiatan}}" class="event-top-thumb">
+                                    <img src="{{asset('images/'.$data_kegiatan->thumbnail_kegiatan)}}" alt="Upcoming-event">
+                                </a>
                                 <div class="event-top-content">
                                     <div class="event-top-content-wrapper mb-30">
                                         <ul class="lab-ul event-date mb-4 mb-md-0">
-                                            <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span></li>
-                                            <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
+                                            <li><i class="icofont-calendar"></i> <span>
+                                                {{ Carbon\Carbon::parse($data_kegiatan->tanggal_kegiatan)->isoFormat('dddd, D MMMM Y HH:MM') }}
+                                            </span></li>
+                                            <li><i class="icofont-location-pin"></i> <span>{{$data_kegiatan->lokasi_kegiatan}}</span></li>
                                         </ul>
-                                        <ul class="lab-ul event-count" data-date="April 02, 2022 18:00:01">
+                                        <ul class="lab-ul event-count" data-date="{{$data_kegiatan->tanggal_kegiatan}}">
                                             <li>
                                                 <span class="days">34</span>
                                                 <div class="count-text">Days</div>
@@ -51,17 +53,20 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <p class="mb-30">Kegiatan Kultum Rutin Ba'da Dhuhur dilaksakanan Setelah Sholat Dhuhur yang diisi Oleh 
-                                        dosen-dosen polinema sendiri.
+                                    <p class="mb-30">
+                                        Kegiatan {{$data_kegiatan->nama_kegiatan}} yang dilaksanakan di {{$data_kegiatan->lokasi_kegiatan}} ,
+                                        Hari {{ Carbon\Carbon::parse($data_kegiatan->tanggal_kegiatan)->isoFormat('dddd, D MMMM Y') }}, 
+                                        Pukul {{ Carbon\Carbon::parse($data_kegiatan->tanggal_kegiatan)->isoFormat('HH:MM') }}
+                                        bersama <b>{{$data_kegiatan->pemateri_kegiatan}}</b>
 
                                     </p>
-                                    <blockquote class="single-quote mb-30">
+                                    {{-- <blockquote class="single-quote mb-30">
                                         <div class="quotes">
                                             "Gek Sering-sering nang masjid gaes ya, bantu-bantu masjid. inshaallah berkah
                                             apalagi mau ramadhan :)"
                                             <span>Ust. Syamsul Arifin</span>
                                         </div>
-                                    </blockquote>                                  
+                                    </blockquote>                                   --}}
 
 
                                     <iframe
@@ -76,16 +81,18 @@
                         <aside class="lab-aside">
                             <div class="widget widget-event mt-5 mt-lg-0">
                                 <div class="widget-header">
-                                    <h5>Details Kegiatan</h5>
+                                    <h5>Detail Kegiatan</h5>
                                 </div>
                                 <ul class="lab-ul widget-wrapper">
                                     <li>
                                         <span><i class="icofont-ui-calendar"></i> Tanggal </span> <span>:
-                                            02/01/2021</span>
+                                            {{ Carbon\Carbon::parse($data_kegiatan->tanggal_kegiatan)->isoFormat('D MMMM Y') }}
+                                        </span>
                                     </li>
                                     <li>
-                                        <span><i class="icofont-clock-time"></i> Waktu </span> <span>: 9:30
-                                            AM</span>                                    
+                                        <span><i class="icofont-clock-time"></i> Waktu </span> <span>: 
+                                            {{ Carbon\Carbon::parse($data_kegiatan->tanggal_kegiatan)->isoFormat('HH:MM') }}
+                                        </span>                                    
                                     <li>
                                         <span><i class="icofont-home"></i> Lokasi </span> <span>: Polinema
                                             </span>
@@ -98,19 +105,21 @@
                                     <h5>Kegiatan Kami Lainnya</h5>
                                 </div>
                                 <div class="widget-wrapper">
+                                    @foreach ($lain_kegiatan as $kegiatan)
                                     <div class="program-item mb-4 mt-5">
                                         <div class="lab-inner">
                                             <div class="lab-thumb">
-                                                <a href="#">
-                                                    <img src="{{asset('template/home/assets/images/program/04.jpg')}}" alt="program-image">
+                                                <a href="/kegiatan/{{$kegiatan->id_kegiatan}}">
+                                                    <img src="{{asset('images/'.$kegiatan->thumbnail_kegiatan)}}" alt="program-image">
                                                 </a>
                                             </div>
                                             <div class="lab-content">
-                                                <span>Kajian Rutin</span>
-                                                <h5><a href="#">Nawak Hijrah Bersama Habib Muhammad Bin Anies Shahab</a> </h5>
+                                                <span>{{$kegiatan->nama_kegiatan}}</span>
+                                                <h5><a href="/kegiatan/{{$kegiatan->id_kegiatan}}">{{$kegiatan->pemateri_kegiatan}}</a> </h5>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
                             {{-- <div class="widget widget-ad mb-5">

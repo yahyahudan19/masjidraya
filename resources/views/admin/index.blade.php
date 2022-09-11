@@ -104,7 +104,7 @@
               </div>                                    
           </div>                            
       </div>
-    @else
+    @elseif(auth()->user()->role == 'User')
     <div class="row">
         <div class="col-lg-12">
             <div class="row">

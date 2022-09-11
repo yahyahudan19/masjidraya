@@ -45,7 +45,7 @@
                                             <i class="fas fa-tasks text-gradient-success"></i>
                                         </div>
                                         <div class="col-10 text-right">
-                                            <h5 class="mt-0 mb-1">10</h5>
+                                            <h5 class="mt-0 mb-1">{{$total}}</h5>
                                             <p class="mb-0 font-12 text-muted">Kegiatan</p>   
                                         </div>
                                     </div>                                                        
@@ -87,28 +87,36 @@
                                 <th>Kegiatan</th>
                                 <th>Pemateri</th>
                                 <th>Tanggal</th>
-                                <th>Lokasi</th>
+                                {{-- <th>Lokasi</th> --}}
                                 <th>Link</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
 
                             <tbody>
+                            @php $no = 1; @endphp
+                            @foreach ($kegiatan as $kegiatan)
                             <tr>
-                                <td>1</td>
-                                <td>Kultum Rutin Ba'da Dhuhur</td>
-                                <td>Ust. Syamsul Arifin</td>                                
-                                <td>2022/08/31</td>
-                                <td>Masjid Raya An-Nur Polinema</td>
+                                <td>{{$no++}}</td>
+                                <td>{{$kegiatan->nama_kegiatan}}</td>
+                                <td>{{$kegiatan->pemateri_kegiatan}}</td>                                
                                 <td>
-                                    <a type="button" href="#" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</a>
+                                    <?php
+                                        $date = Date('d M Y H:i', strtotime($kegiatan->tanggal_kegiatan));
+                                    ?>
+                                    {{$date}}
+                                </td>
+                                {{-- <td>{{$kegiatan->lokasi_kegiatan}}</td> --}}
+                                <td>
+                                    <a type="button" href="{{$kegiatan->link_kegiatan}}" target="_blank" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</a>
                                 </td>
                                 <td>
-                                    <a type="button" href="/admin/kegiatan/detail" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
-                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
+                                    <a type="button" href="/admin/kegiatan/detail/{{$kegiatan->id_kegiatan}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                    <a type="button" href="/admin/kegiatan/delete/{{$kegiatan->id_kegiatan}}" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
                                 </td>
                             </tr>
-                            <tr>
+                            @endforeach
+                            {{-- <tr>
                                 <td>2</td>
                                 <td>Kultum Rutin Ba'da Dhuhur</td>
                                 <td>Ust. Baha'uddin </td>
@@ -135,7 +143,7 @@
                                     <a type="button" href="#" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
                                     <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
                                 </td>
-                            </tr>
+                            </tr> --}}
                             
                             </tbody>
                         </table>
@@ -162,41 +170,45 @@
                                 <div class="card-body"> 
                                     <div class="row">
                                         <div class="col-xl-12">
-                                            <form class="" action="#">
+                                            <form class="" action="/admin/kegiatan/add" method="POST" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="form-group row">
                                                     <label for="example-text-input" class="col-sm-2 col-form-label">Kegiatan</label>
                                                     <div class="col-sm-10">
-                                                        <input class="form-control" type="text" value="Kajian Rutin" id="example-text-input">
+                                                        <input class="form-control" type="text" id="nama_kegiatan" name="nama_kegiatan" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="example-text-input" class="col-sm-2 col-form-label">Pemateri</label>
                                                     <div class="col-sm-10">
-                                                        <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-text-input">
+                                                        <input class="form-control" type="text" id="pemateri_kegiatan" name="pemateri_kegiatan" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="example-search-input" class="col-sm-2 col-form-label">Lokasi</label>
                                                     <div class="col-sm-10">
-                                                        <input class="form-control" type="search" value="Masjid Raya An-Nur Polinema " id="example-search-input">
+                                                        <select class="form-control" id="lokasi_kegiatan" name="lokasi_kegiatan" required>
+                                                            <option>Masjid Raya An-Nur Polinema</option>
+                                                            <option>Lainnya</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="example-url-input" class="col-sm-2 col-form-label">Link Live Streaming</label>
                                                     <div class="col-sm-10">
-                                                        <input class="form-control" type="url" value="https://youtube.com" id="example-url-input">
+                                                        <input class="form-control" type="url" id="link_kegiatan" name="link_kegiatan" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date and time</label>
                                                     <div class="col-sm-10">
-                                                        <input class="form-control" type="datetime-local" value="2022-08-21T13:45:00" id="example-datetime-local-input">
+                                                        <input class="form-control" type="datetime-local" id="tanggal_kegiatan" name="tanggal_kegiatan" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Thumbnail</label>
                                                     <div class="col-sm-10">
-                                                        <input type="file" id="input-file-now" class="dropify" />  
+                                                        <input type="file" class="dropify" name="thumbnail_kegiatan" id="thumbnail_kegiatan" required/>  
                                                     </div>
                                                 </div>
                                                 

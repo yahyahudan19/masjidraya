@@ -31,23 +31,38 @@ Route::get('/home', [HomeController::class,'index']);
 Route::get('/gallery', [HomeController::class,'gallery']);
 Route::get('/about', [HomeController::class,'about']);
 Route::get('/contact', [HomeController::class,'contact']);
+
+Route::get('/artikel', [HomeController::class,'artikel']);
+Route::get('/artikel/{id}', [HomeController::class,'detailArtikel']);
+
 Route::get('/kegiatan', [HomeController::class,'kegiatan']);
-Route::get('/kegiatan/detail', [HomeController::class,'detailKegiatan']);
+Route::get('/kegiatan/{id}', [HomeController::class,'detailKegiatan']);
 
+/* ====================== Dashboard Routes ====================== */
 
-Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
-    /* Admin Routes */
+Route::middleware(['auth', 'checkRole:Admin,User'])->group(function () {
+    /* Dashboard Routes */
     Route::get('/dashboard', [AdminController::class,'index']);
+});  
+
+/* ====================== Admin Routes ====================== */
+Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
 
     /* Kegiatan Routes */
     Route::get('/admin/kegiatan', [AdminController::class,'kegiatan']);
-    Route::get('/admin/kegiatan/add', [AdminController::class,'addKegiatan']);
-    Route::get('/admin/kegiatan/detail', [AdminController::class,'detKegiatan']);
+    Route::post('/admin/kegiatan/add', [AdminController::class,'addKegiatan']);
+    Route::get('/admin/kegiatan/delete/{id}', [AdminController::class,'delKegiatan']);
+    Route::get('/admin/kegiatan/detail/{id}', [AdminController::class,'detKegiatan']);
+    Route::put('/admin/kegiatan/update', [AdminController::class,'updKegiatan']);
 
     /* Artikel Routes */
     Route::get('/admin/artikel', [AdminController::class,'artikel']);
-    Route::get('/admin/artikel/add', [AdminController::class,'addArtikel']);
-    Route::get('/admin/artikel/detail', [AdminController::class,'detArtikel']);
+    Route::get('/admin/artikel/tambah', [AdminController::class,'tambahArtikel']);
+    Route::post('/admin/artikel/add', [AdminController::class,'addArtikel']);
+    Route::put('/admin/artikel/update', [AdminController::class,'updArtikel']);
+    Route::get('/admin/artikel/delete/{id}', [AdminController::class,'delArtikel']);
+    Route::get('/admin/artikel/verifikasi/{id}', [AdminController::class,'verArtikel']);
+    Route::get('/admin/artikel/detail/{id}', [AdminController::class,'detArtikel']);
 
     /* Gallery Routes */
     Route::get('/admin/gallery', [AdminController::class,'gallery']);
@@ -61,9 +76,8 @@ Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
 
 });
 
+/* ====================== User Routes ====================== */
 Route::middleware(['auth', 'checkRole:User'])->group(function () {
-    /* Admin Routes */
-    Route::get('/dashboard', [AdminController::class,'index']);
 
     /* Artikel Routes */
     Route::get('/user/artikel', [AdminController::class,'artikel']);

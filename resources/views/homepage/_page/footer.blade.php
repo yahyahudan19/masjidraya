@@ -120,7 +120,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="footer-bottom-content text-center">
-                            <p>&copy;<?php echo date("Y");?> <a href="#">Hafsa</a> - dikelola oleh Tim Multimedia Masjid Raya Annur Polinema.</p>
+                            <p>&copy;<?php echo date("Y");?> <a href="#"></a> - dikelola oleh Tim Multimedia Masjid Raya Annur Polinema.</p>
                         </div>
                     </div>
                 </div>
