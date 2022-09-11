@@ -134,13 +134,13 @@
                             <div class="card text-center border-none team-item-1">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="{{asset('template/home/assets/images/team/01.jpg')}}" class="card-img-top" alt="product">
+                                        <img src="{{asset('images/profile/ustmuw.jpg')}}" class="card-img-top" alt="product">
                                     </div>
                                     <div class="lab-content">
                                         <a href="#">
                                             <h6 class="card-title mb-0">Ust. Drs. H. M. Muwidha., M.Si</h6>
                                         </a>
-                                        <p class="card-text mb-3">Ketua Ketakmiran </p>
+                                        <p class="card-text mb-3">Ketua Takmir</p>
                                         <div class="social-share">
                                             <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
                                             <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
@@ -156,13 +156,13 @@
                             <div class="card text-center border-none team-item-1">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="{{asset('template/home/assets/images/team/02.jpg')}}" class="card-img-top" alt="product">
+                                        <img src="{{asset('images/profile/ustsyam.jpg')}}" class="card-img-top" alt="product">
                                     </div>
                                     <div class="lab-content">
                                         <a href="#">
                                             <h6 class="card-title mb-0">Ust. Syamsul Arifin</h6>
                                         </a>
-                                        <p class="card-text mb-3">Sekretaris Ketakmiran</p>
+                                        <p class="card-text mb-3">Sie Peribadatan</p>
                                         <div class="social-share">
                                             <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
                                             <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
@@ -178,13 +178,13 @@
                             <div class="card text-center border-none team-item-1">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="{{asset('template/home/assets/images/team/03.jpg')}}" class="card-img-top" alt="product">
+                                        <img src="{{asset('images/profile/atok.jpg')}}" class="card-img-top" alt="product">
                                     </div>
                                     <div class="lab-content">
                                         <a href="#">
-                                            <h6 class="card-title mb-0">Yahya Hudan</h6>
+                                            <h6 class="card-title mb-0">A. Yahya Hudan, S.Tr.Kom</h6>
                                         </a>
-                                        <p class="card-text mb-3">Multimedia Team & Web Developer</p>
+                                        <p class="card-text mb-3">IT Support</p>
                                         <div class="social-share">
                                             <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
                                             <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
