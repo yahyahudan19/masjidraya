@@ -5,7 +5,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="page-header-content-area">
-            <h4 class="ph-title" style="font-family: Montserrat">Detail Artikel <br>{{$data_artikel->nama_artikel}}</h4>
+            <h4 class="ph-title" style="font-family: Montserrat">{{$data_artikel->nama_artikel}}</h4>
             <ul class="lab-ul">
                 <li><a href="/">Home</a></li>
                 <li><a class="#">Artikel</a></li>
@@ -97,11 +97,11 @@
                                 @foreach ($lain_artikel as $artikel_lain)
                                 <li class="d-flex flex-wrap justify-content-between">
                                     <div class="post-thumb">
-                                        <a href="#"><img src="{{asset('images/artikel/'.$artikel_lain->thumbnail_artikel)}}"
+                                        <a href="/artikel/{{$artikel_lain->id_artikel}}"><img src="{{asset('images/artikel/'.$artikel_lain->thumbnail_artikel)}}"
                                                 alt="thumbnail"></a>
                                     </div>
                                     <div class="post-content ps-4">
-                                        <a href="#">
+                                        <a href="/artikel/{{$artikel_lain->id_artikel}}">
                                             <h6>{{$artikel_lain->nama_artikel}}</h6>
                                         </a>
                                         <p>

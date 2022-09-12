@@ -146,11 +146,12 @@
                 </div>
                 <div class="col-12">
                     <div class="row g-0 justify-content-center service-wrapper">
+                        @foreach ($artikel as $artikel)
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="lab-item service-item">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
-                                        <img src="{{asset('template/home/assets/images/service/01.png')}}" alt="Service-image">
+                                        <img src="{{asset('images/artikel/'.$artikel->thumbnail_artikel)}}" alt="Artikel-image">
                                     </div>
                                     <div class="lab-content pattern-2">
                                         <div class="lab-content-wrapper">
@@ -158,14 +159,20 @@
                                                 <div class="service-top-thumb"><img src="{{asset('template/home/assets/images/service/03.png')}}"
                                                         alt="service-icon"></div>
                                                 <div class="service-top-content">
-                                                    <span>Akhlak dan Adab</span>
-                                                    <h5><a href="#"> Adab-adab di Masjid</a></h5>
+                                                    <span>{{$artikel->penulis_artikel}}</span>
+                                                    <h5><a href="#"> {{$artikel->nama_artikel}}</a></h5>
                                                 </div>
                                             </div>
                                             <div class="content-bottom">
-                                                <p>Artikel ini memberikan penjelasan kepada kita bahwa didalam 
-                                                    masjid kita harus memperhatikan adab</p>
-                                                <a href="#" class="text-btn">Read More +</a>
+                                                <p>
+                                                    <?php
+                                                        $text = $artikel->konten_artikel;
+                                                        $sort_text = substr($text,0,100);
+
+                                                        echo $sort_text," ...";
+                                                    ?>
+                                                </p>
+                                                <a href="/artikel/{{$artikel->id_artikel}}" class="text-btn">Read More +</a>
                                             </div>
                                         </div>
 
@@ -173,7 +180,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-12">
+                        @endforeach
+                        {{-- <div class="col-lg-4 col-md-6 col-12">
                             <div class="lab-item service-item">
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
@@ -222,7 +230,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -372,11 +380,10 @@
                                     </div>
                                     <div class="lab-content">
                                         <blockquote class="blockquote">
-                                            <p>Hazrat Mohammod (s) Said <span>"It is Better For Any Of You
-                                                    To Carry A Load Of Firewood On His Own Back Than To
-                                                    Beg From Someone Else"</span> </p>
-                                            <footer class="blockquote-footer bg-transparent">Riyadh-Us-Saleheen, Chapter
-                                                59, hadith 540
+                                            <p>Sesungguhnya yang memakmurkan masjid Allah hanyalah orang-orang yang beriman kepada Allah dan hari kemudian, 
+                                                serta (tetap) melaksanakan sholat, menunaikan zakat, dan tidak takut (kepada apa pun) kecuali kepada Allah. 
+                                                Maka mudah-mudahan mereka termasuk orang-orang yang mendapat petunjuk."</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">Imam Ibnul Jauzi, Kitab Zaadul masiir” 3/408
                                             </footer>
                                         </blockquote>
                                     </div>
@@ -404,17 +411,21 @@
                     <div class="event-content">
                         <div class="event-top tri-shape-2 pattern-2">
                             <div class="event-top-thumb">
-                                <img src="{{asset('template/home/assets/images/event/ramadhan1443h.png')}}" alt="Upcoming-event">
+                                <img src="{{asset('images/'.$kegiatan_utama->thumbnail_kegiatan)}}" alt="Upcoming-event">
                             </div>
                             <div class="event-top-content">
                                 <div class="event-top-content-wrapper">
-                                    <h3><a href="#">Kegiatan Ramadhan 1443 H </a> </h3>
+                                    <h3><a href="/kegiatan/{{$kegiatan_utama->id_kegiatan}}">{{$kegiatan_utama->nama_kegiatan}}</a> </h3>
                                     <div class="date-count-wrapper">
                                         <ul class="lab-ul event-date">
-                                            <li><i class="icofont-calendar"></i> <span>April 02,2022</span></li>
-                                            <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
+                                            <li><i class="icofont-calendar"></i> 
+                                                <span>
+                                                    {{ Carbon\Carbon::parse($kegiatan_utama->tanggal_kegiatan)->isoFormat('dddd, D MMMM Y HH:MM') }}
+                                                </span>
+                                            </li>
+                                            <li><i class="icofont-location-pin"></i> <span>{{$kegiatan_utama->lokasi_kegiatan}}</span></li>
                                         </ul>
-                                        <ul class="lab-ul event-count" data-date="April 02, 2022 21:14:01">
+                                        <ul class="lab-ul event-count" data-date="{{$kegiatan_utama->tanggal_kegiatan}}">
                                             <li>
                                                 <span class="days">34</span>
                                                 <div class="count-text">Days</div>
@@ -438,57 +449,28 @@
                         </div>
                         <div class="event-bottom">
                             <div class="row justify-content-center">
+                                @foreach ($kegiatan as $kegiatan)
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="event-item lab-item">
                                         <div class="lab-inner">
                                             <div class="lab-thumb">
-                                                <img src="{{asset('template/home/assets/images/event/02.jpg')}}" alt="event-image">
+                                                <img src="{{asset('images/'.$kegiatan->thumbnail_kegiatan)}}" alt="event-image">
                                             </div>
                                             <div class="lab-content">
-                                                <h5><a href="#">Kultum Rutin Ba'da Dhuhur, Oleh Ust. Syamsul</a> </h5>
+                                                <h5><a href="/kegiatan/{{$kegiatan->id_kegiatan}}">{{$kegiatan->nama_kegiatan}}</a> </h5>
                                                 <ul class="lab-ul event-date">
-                                                    <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
+                                                    <li><i class="icofont-calendar"></i> 
+                                                        <span>
+                                                            {{ Carbon\Carbon::parse($kegiatan->tanggal_kegiatan)->isoFormat('dddd, D MMMM Y HH:MM') }}
+                                                        </span>
                                                     </li>
-                                                    <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
+                                                    <li><i class="icofont-location-pin"></i> <span>{{$kegiatan->lokasi_kegiatan}}</span></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md col-12">
-                                    <div class="event-item lab-item">
-                                        <div class="lab-inner">
-                                            <div class="lab-thumb">
-                                                <img src="{{asset('template/home/assets/images/event/03.jpg')}}" alt="event-image">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h5><a href="#">Kajian Rutin Muslimah : Tutorial Sholat </a> </h5>
-                                                <ul class="lab-ul event-date">
-                                                    <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
-                                                    </li>
-                                                    <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="event-item lab-item">
-                                        <div class="lab-inner">
-                                            <div class="lab-thumb">
-                                                <img src="{{asset('template/home/assets/images/event/04.jpg')}}" alt="event-image">
-                                            </div>
-                                            <div class="lab-content">
-                                                <h5><a href="#"> Sholat & Khutbah Jum'at bersama Ust. Muwidha</a></h5>
-                                                <ul class="lab-ul event-date">
-                                                    <li><i class="icofont-calendar"></i> <span>24 Maret 2022</span>
-                                                    </li>
-                                                    <li><i class="icofont-location-pin"></i> <span>Masjid Raya Annur Polinema</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>      
+                                @endforeach
                             </div>
                         </div>
                     </div>

@@ -10,8 +10,7 @@
                         </div>
                         <div class="logo">
                             <a href="/home">
-                                <img src="{{asset('template/home/assets/images/logo/logo_2.png')}}
-                                " alt="logo">
+                                <img src="{{asset('template/home/assets/images/logo/LogoWeb.png')}}" alt="logo">
                             </a>
                         </div>
                         <div class="ellepsis-bar d-lg-none">
@@ -44,7 +43,7 @@
                                     <a href="#"><i class="fab fa-skype"></i></a>
                                 </li>
                                 <li>
-                                    <a href="/login"><i class="fas fa-sign-in-alt"></i></a>
+                                    <a href="/auth"><i class="fas fa-sign-in-alt"></i></a>
                                 </li>
                             </ul>
                         </div>

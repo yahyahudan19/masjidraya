@@ -118,6 +118,9 @@
         <script src="{{asset('template/admin/assets/plugins/tinymce/tinymce.min.js')}}"></script>
         <script src="{{asset('template/admin/assets/pages/form-editor.js')}}"></script>
         
+        <!-- Parsley js -->
+        <script src="{{asset('template/admin/assets/plugins/parsleyjs/parsley.min.js')}}"></script>
+        <script src="{{asset('template/admin/assets/pages/validation.init.js')}}"></script>
 
     </body>
 </html>

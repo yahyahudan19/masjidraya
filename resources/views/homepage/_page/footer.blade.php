@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="fm-item-content">
                                     <p class="mb-4">Tempat Peribadatan yang sangat menyejukkan hati dan jiwa</p>
-                                    <img src="{{asset('template/home/assets/images/footer/footer-middle/01.jpg')}}" alt="about-image"
+                                    <img src="{{asset('template/home/assets/images/logo/LogoWeb.png')}}" alt="about-image" height="100px" width="300px"
                                         class="footer-abt-img">
                                 </div>
                             </div>

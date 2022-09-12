@@ -52,6 +52,9 @@
     <a href="#" class="scrollToTop"><i class="icofont-bubble-up"></i><span class="pluse_1"></span><span
             class="pluse_2"></span></a>
     <!-- scrollToTop ending here -->
+    
+    <!-- Sweet Alert-->
+    @include('sweetalert::alert')
 
     <script src="{{asset('template/home/assets/js/jquery.js')}}"></script>
     <script src="{{asset('template/home/assets/js/fontawesome.min.js')}}"></script>

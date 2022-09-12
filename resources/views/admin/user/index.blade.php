@@ -92,29 +92,32 @@
                             </thead>
 
                             <tbody>
+
+                            @php $no = 1; @endphp
+                            @foreach ($data_user as $user)
                             <tr>
-                                <td>1</td>
-                                <td>galihpamungkas</td>
-                                <td>galihpamungkas@gmail.com</td>                                
-                                <td>Penulis</td>                                
-                                <td><span class="badge badge-success"><i class="mdi mdi-check-circle"></i>Terverifikasi</span></td>
+                                <td>{{$no++}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>                                
+                                <td>{{$user->role}}</td>                              
                                 <td>
-                                    <a type="button" href="/admin/user/detail" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
-                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
+                                    @if($user->status == 'Aktif')
+                                        <span class="badge badge-success"><i class="mdi mdi-check-circle"></i>Terverifikasi</span>
+                                    @else
+                                        <span class="badge badge-warning"><i class="mdi mdi-close-circle"></i>Belum Terverifikasi</span>
+                                    @endif
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>hanifwid</td>
-                                <td>hanifwid69@gmail.com</td>                                
-                                <td>Admin</td>                                
-                                <td><span class="badge badge-warning"><i class="mdi mdi-close-circle"></i>Belum Terverifikasi</span></td>
                                 <td>
-                                    <a type="button" href="/admin/user/detail" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
-                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
-                                    <a type="button" href="#" class="btn btn-success waves-effect waves-light btn-sm"><i class="mdi mdi-check-circle mr-2"></i>Verifikasi</a>
-                                </td>
+                                    <a type="button" href="/admin/user/{{$user->id}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                    @if($user->role == 'User')
+                                        <a type="button" href="/admin/user/delete/{{$user->id}}" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
+                                        @endif
+                                    @if($user->status == 'Tidak Aktif')
+                                        <a type="button" href="/admin/user/verif/{{$user->id}}" class="btn btn-success waves-effect waves-light btn-sm"><i class="mdi mdi-check-circle mr-2"></i>Verfikasi</a>
+                                    @endif
+                                </td>      
                             </tr>
+                            @endforeach
                             
                             </tbody>
                         </table>
@@ -143,23 +146,30 @@
                             <div class="card-body"> 
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <form class="" action="#">
+                                        <form class="" action="/admin/user/add" method="POST">
+                                            @csrf
                                             <div class="form-group row">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Username</label>
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Nama</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" placeholder="Username" id="username" required>
+                                                    <input class="form-control" type="text" placeholder="Username" data-parsley-minlength="6" name="name" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">Email</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" parsley-type="email" placeholder="email@email.com" id="email" required>
+                                                    <input class="form-control" parsley-type="email" type="email" placeholder="email@email.com" name="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Password</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="password" data-parsley-minlength="6" placeholder="Password" name="password" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-sm-2 col-form-label">Role</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control">
+                                                    <select class="form-control" name="role">
                                                         <option>Penulis</option>
                                                         <option>Admin</option>
                                                     </select>
@@ -185,4 +195,7 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
 @stop

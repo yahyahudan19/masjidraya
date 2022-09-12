@@ -19,10 +19,12 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [HomeController::class,'index']);
 
-/* Login Routes */
+/* Auth Routes */
 
 Route::get('/auth',[AuthController::class,'index'])->name('login');
 Route::post('/login',[AuthController::class,'login']);
+Route::get('/register',[AuthController::class,'register']);
+Route::post('/registering',[AuthController::class,'registering']);
 Route::get('/logout',[AuthController::class,'logout']);
 
 /* Homepage Routes */
@@ -71,7 +73,9 @@ Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
 
     /* User Routes */
     Route::get('/admin/user', [AdminController::class,'user']);
-    Route::get('/admin/user/add', [AdminController::class,'addUser']);
+    Route::post('/admin/user/add', [AdminController::class,'addUser']);
+    Route::get('/admin/user/delete/{id}', [AdminController::class,'delUser']);
+    Route::get('/admin/user/verif/{id}', [AdminController::class,'verifikasi']);
     Route::get('/admin/user/detail', [AdminController::class,'detUser']);
 
 });

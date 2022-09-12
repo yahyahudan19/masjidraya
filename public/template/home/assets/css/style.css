@@ -2536,7 +2536,7 @@ header.header-3.header-fixed .header-top {
   display: none;
 }
 header.header-3 .logo a img {
-  width: 100%;
+  width: 70%;
 }
 @media (max-width: 991px) {
   header.header-3 .header-top-area .social-icons,

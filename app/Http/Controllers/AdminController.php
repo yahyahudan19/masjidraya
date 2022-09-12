@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use App\Models\Kegiatan;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -267,13 +270,65 @@ class AdminController extends Controller
     }
     
     /* ========= User View ========= */
+
+    /* User View */
     public function user(){
-        return view('admin/user/index');
+        $data_user = User::all();
+        return view('admin/user/index',compact('data_user'));
     }
     /* Add User*/
-    public function addUser(){
-        return view('admin/user/add');
+    public function addUser(Request $request){
+
+        // dd($request->all());
+
+        if(User::where('email', $request->email)->exists()){
+            Alert::error('Register Gagal !', 'Email Sudah Digunakan');
+            return redirect()->back();
+            
+        }else{
+            $user = User::create([
+                "role" => "User",
+                "name" => $request->name,
+                "email" => $request->email,
+                "status" => "Tidak Aktif",
+                "password" => Hash::make($request->password),
+            ]);
+    
+            if($user){
+                return redirect()->back()->with('success', 'Register Berhasil !');
+            }else{
+                return redirect()->back()->with('error', 'Register Gagal !');
+            }
+        }
     }
+    /* Delete User*/
+    public function delUser($id){
+        
+        $user = User::findOrFail($id);
+
+        if($user){
+            $user->delete($id);
+            return redirect()->back()->with('success', 'User Berhasil Dihapus!');
+        }else{
+            return redirect()->back()->with('error', 'User Gagal Dihapus !');
+        }
+
+    }
+
+    /* Verikasi User*/
+    public function verifikasi($id){
+
+        $user = User::findOrFail($id);
+
+        $user->update([
+            "status" => "Aktif",
+            "email_verified_at" =>  Carbon::now()
+        ]);
+
+        return redirect()->back()->with('success', 'User Berhasil Terverifikasi !');
+
+    }
+
     /* Detail User*/
     public function detUser(){
         return view('admin/user/detail');

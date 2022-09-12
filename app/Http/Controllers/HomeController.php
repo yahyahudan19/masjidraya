@@ -11,7 +11,10 @@ class HomeController extends Controller
 {
     /* Hompage View */
     public function index(){
-        return view('homepage/index');
+        $artikel = Artikel::where('status_artikel','Valid')->get()->all();
+        $kegiatan = Kegiatan::all();
+        $kegiatan_utama = Kegiatan::latest()->first(); 
+        return view('homepage/index',compact('artikel','kegiatan','kegiatan_utama'));
     }
 
     /* About View */
