@@ -17,7 +17,12 @@ class AdminController extends Controller
 
     /* ========= Dashboard Controller ========= */
     public function index(){
-        return view('admin/index');
+
+        $kegiatan = Kegiatan::all()->count();
+        $artikel = Artikel::all()->count();
+        $user = User::all()->count();
+
+        return view('admin/index',compact('kegiatan','user','artikel'));
     }
 
     /* ========= Kegiatan Controller ========= */
@@ -147,6 +152,8 @@ class AdminController extends Controller
     /* Add Artikel*/
     public function addArtikel(Request $request){
 
+        dd($request->all());
+
         //  With Thumbnail
 
         if($request->hasFile('thumbnail_artikel')){
@@ -162,6 +169,7 @@ class AdminController extends Controller
                 'konten_artikel' => $request->konten_artikel,
                 'tanggal_artikel' => $request->tanggal_artikel,
                 'penulis_artikel' => $request->penulis_artikel,
+                'penulis_artikel' => auth()->user()->name,
                 'status_artikel' => "Belum Valid",
                 'thumbnail_artikel' => $request->file('thumbnail_artikel')->getClientOriginalName(),
             ]);
@@ -273,8 +281,10 @@ class AdminController extends Controller
 
     /* User View */
     public function user(){
+        $user = User::where('role','User')->get()->count();
+        $admin = User::where('role','Admin')->get()->count();
         $data_user = User::all();
-        return view('admin/user/index',compact('data_user'));
+        return view('admin/user/index',compact('data_user','user','admin'));
     }
     /* Add User*/
     public function addUser(Request $request){
@@ -288,6 +298,7 @@ class AdminController extends Controller
         }else{
             $user = User::create([
                 "role" => "User",
+                "photo" => "logo_putih.png", // Default Image Profile
                 "name" => $request->name,
                 "email" => $request->email,
                 "status" => "Tidak Aktif",
@@ -330,22 +341,152 @@ class AdminController extends Controller
     }
 
     /* Detail User*/
-    public function detUser(){
-        return view('admin/user/detail');
+    public function detUser($id){
+        $data_user = User::find($id);
+        return view('admin.user.detail',compact('data_user'));
     }
+
+    /* Update User*/
+    public function updUser(Request $request){
+
+        $user_id = $request->id;
+        $user = User::find($user_id);
+
+
+        if($user){
+
+            // dd($request->all());
+            if($request->hasFile('photo')){
+
+                dd($request->all());
+                
+                $request->file('photo')->move('images/profile/',$request->file('photo')->getClientOriginalName());
+    
+                $user->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'role' => $request->role,
+                    'photo' => $request->file('photo')->getClientOriginalName(),
+                ]);
+    
+                return redirect()->back()->with('success', 'User Berhasil Terupdate !');
+
+            }else{
+
+                dd($request->all());
+
+                $user->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'role' => $request->role,
+                ]);
+
+                return redirect()->back()->with('success', 'User Berhasil Terupdate !');
+            }
+        }else{
+            return redirect()->back()->with('warning', 'User Tidak Ada !');
+        }
+
+    }
+
+    public function profile($id){
+        $data_user = User::find($id);
+        return view('admin.profile',compact('data_user'));
+    }
+
+
 
      /* =================================== User Artikel Controller ================================ */
 
-     public function userArtikel(){
-        return view('user/artikel/index');
+    /* View Artikel */ 
+    public function userArtikel(){
+        $total = Artikel::where('penulis_artikel',auth()->user()->name)->get()->count();
+        $verif = Artikel::where([
+            "penulis_artikel" => auth()->user()->name,
+            "status_artikel" => "Valid"
+        ])->get()->count();
+        $artikel = Artikel::where('penulis_artikel',auth()->user()->name)->get();
+        return view('user/artikel/index',compact('total','artikel','verif'));
     }
-    /* Add Artikel*/
+    /* Add View Artikel*/
     public function UseraddArtikel(){
         return view('user/artikel/add');
     }
-    /* Detail Artikel*/
-    public function UserdetArtikel(){
-        return view('user/artikel/detail');
+    /* Detail View Artikel*/
+    public function UserdetArtikel($id_artikel){
+        $data_artikel= Artikel::find($id_artikel);    
+        return view('user/artikel/detail',compact('data_artikel'));
     }
+    /* Update Artikel */
+    public function UserUpdArtikel(Request $request){
 
+        
+        $artikel_id = $request->id_artikel;
+        $artikel = Artikel::find($artikel_id);
+        
+        if($artikel){
+
+            // dd($request->all());
+
+            $request->file('thumbnail_artikel')->move('images/artikel/',$request->file('thumbnail_artikel')->getClientOriginalName());
+            
+            $artikel->update([
+                'nama_artikel' => $request->nama_artikel,
+                'konten_artikel' => $request->konten_artikel,
+                'penulis_artikel' => $request->penulis_artikel,
+                'artikel_artikel' => $request->artikel_artikel,
+                'tanggal_artikel' => $request->tanggal_artikel,
+                'thumbnail_artikel' => $request->file('thumbnail_artikel')->getClientOriginalName(),
+            ]);
+
+            return redirect()->back()->with('success','Artikel Berhasil Diupdate');
+        }else{
+            return redirect()->back()->with('warning','Artikel Tidak Ada');
+        }
+        
+    }
+    /* Add Process Artikel*/
+    public function addArtikelUser(Request $request){
+
+        //  With Thumbnail
+
+        if($request->hasFile('thumbnail_artikel')){
+
+            $request->validate([
+                'thumbnail_artikel' => 'required|max:2048',
+            ]);
+
+            $request->file('thumbnail_artikel')->move('images/artikel',$request->file('thumbnail_artikel')->getClientOriginalName());
+
+            $artikel = Artikel::create([
+                'nama_artikel' => $request->nama_artikel,
+                'konten_artikel' => $request->konten_artikel,
+                'tanggal_artikel' => $request->tanggal_artikel,
+                'penulis_artikel' => auth()->user()->name,
+                'status_artikel' => "Belum Valid",
+                'thumbnail_artikel' => $request->file('thumbnail_artikel')->getClientOriginalName(),
+            ]);
+            
+            if($artikel){
+                return redirect('user/artikel')->with('success', 'Artikel Berhasil ditambahkan !');
+            }else{
+                return redirect('user/artikel')->with('error', 'Artikel Gagal ditambahkan !');
+            }
+        }
+
+        // Whitout Thumbnail
+        
+        $artikel = Artikel::create($request->all());
+
+        if($artikel){
+            return redirect('user/artikel')->with('success', 'Artikel Berhasil ditambahkan !');
+        }else{
+            return redirect('user/artikel')->with('error', 'Artikel Gagal ditambahkan !');
+        }
+    }
+    /* View Profile*/
+    public function UserProfile($id){
+        $data_user = User::find($id);
+        return view('user.profile',compact('data_user'));
+    }
 }

@@ -15,6 +15,7 @@ class AuthController extends Controller
 {
     /* Login View */
     public function index(){
+        
         return view('auth/index');
     }
     /* Login Process */
@@ -54,6 +55,7 @@ class AuthController extends Controller
         }else{
             $user = User::create([
                 "role" => "User",
+                "photo" => "logo_putih.png",
                 "name" => $request->name,
                 "email" => $request->email,
                 "status" => "Tidak Aktif",

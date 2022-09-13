@@ -60,7 +60,7 @@
                         </div>
                         <div class="authors">
                             <div class="author-thumb">
-                                <img src="assets/images/blog/author2.png" alt="author">
+                                <img src="{{asset('images/profile/'.$foto_artikel->photo)}}" alt="author">
                             </div>
                             <div class="author-content">
                                 <h6>{{$data_artikel->penulis_artikel}}</h6>

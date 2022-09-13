@@ -10,7 +10,7 @@
                 <div class="page-title-box">
                     <div class="btn-group float-right">
                         <ol class="breadcrumb hide-phone p-0 m-0">
-                            <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                            <li class="breadcrumb-item"><a href="#">User</a></li>
                             <li class="breadcrumb-item"><a href="#">Artikel</a></li>
                             <li class="breadcrumb-item"><a href="#">Detail</a></li>
                         </ol>
@@ -27,7 +27,7 @@
                         <p class="text-muted mb-4 font-13">Berikut detail Artikel Masjid Raya An-Nur Polinema, Silahkan lakukan perubahan jika ada kesalahan atau tambahan.</p>
 
                         <div class="button-items">
-                            <a href="/admin/artikel" type="button" class="btn btn-gradient-info waves-effect waves-light"><i class="mdi mdi-keyboard-backspace mr-2"></i>Kembali</a>
+                            <a href="/user/artikel" type="button" class="btn btn-gradient-info waves-effect waves-light"><i class="mdi mdi-keyboard-backspace mr-2"></i>Kembali</a>
                             <button type="button" class="btn btn-gradient-warning waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-Artikel-modal-lg"><i class="mdi mdi-settings mr-2"></i>Update</button>
                         </div>
                     </div>
@@ -39,48 +39,54 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xl-6">
+                            <div class="col-xl-12">
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Artikel</label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Judul Artikel</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Kultum Rutin" id="example-text-input" disabled>
+                                        <input class="form-control" type="text" value="{{$data_artikel->nama_artikel}}" id="example-text-input" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Pemateri</label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Konten</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-search-input" disabled>
+                                        <textarea id="elm1" name="area" readonly>{{$data_artikel->konten_artikel}}</textarea>
                                     </div>
-                                </div>
+                                </div>   
                                 <div class="form-group row">
-                                    <label for="example-text-inputt" class="col-sm-2 col-form-label">Lokasi</label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Penulis</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Masjid Raya An-Nur Polinema" id="example-email-input" disabled>
+                                        <input class="form-control" type="text" value="{{$data_artikel->penulis_artikel}}" id="example-search-input" disabled>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-url-input" class="col-sm-2 col-form-label">Link</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="url" value="https://youtube.com" id="example-url-input" disabled>
-                                    </div>
-                                </div>
+                                </div>   
                                 <div class="form-group row">
                                     <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="datetime-local" value="2022-09-03T13:45:00" id="example-datetime-local-input" disabled>
+                                        <input class="form-control" type="datetime-local" value="{{$data_artikel->tanggal_artikel}}" id="example-datetime-local-input" disabled>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-6">                                
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <div class="">
-                                            <img src="{{asset('template/admin/assets/images/small/img-2.jpg')}}" class="img-fluid" alt="Responsive image" disabled>
+                                            @if($data_artikel->thumbnail_artikel == null)
+                                                <input class="form-control" type="text" value="Thumbnail Tidak Tersedia !" id="example-text-input" disabled>
+                                            @else
+                                                <img src="{{asset('images/artikel/'.$data_artikel->thumbnail_artikel)}}" class="img-fluid" alt="Responsive image" >
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {{-- <div class="col-xl-6">                                
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Gambar</label>
+                                    <div class="col-sm-10">
+                                        <div class="">
+                                            <img src="{{asset('template/admin/assets/images/small/img-2.jpg')}}" class="img-fluid" alt="Responsive image" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
                         </div>                                            
                     </div>
                 </div>
@@ -102,47 +108,44 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-body"> 
+                            <div class="card-body">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <form class="" action="#">
+                                        <form class="" action="/user/artikel/update" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="form-group row">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Artikel</label>
+                                                <input class="form-control" type="hidden" name="id_artikel" id="id_artikel" value="{{$data_artikel->id_artikel}}">
+
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Judul Artikel</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" value="Kajian Rutin" id="example-text-input">
+                                                    <input class="form-control" type="text" value="{{$data_artikel->nama_artikel}}" name="nama_artikel" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Pemateri</label>
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Konten</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-text-input">
+                                                    <textarea id="elm1" name="konten_artikel" required>{{$data_artikel->konten_artikel}}</textarea>
                                                 </div>
-                                            </div>
+                                            </div>   
                                             <div class="form-group row">
-                                                <label for="example-search-input" class="col-sm-2 col-form-label">Lokasi</label>
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Penulis</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="search" value="Masjid Raya An-Nur Polinema " id="example-search-input">
+                                                    <input class="form-control" type="text" value="{{$data_artikel->penulis_artikel}}" name="penulis_artikel" required readonly>
                                                 </div>
-                                            </div>
+                                            </div>   
                                             <div class="form-group row">
-                                                <label for="example-url-input" class="col-sm-2 col-form-label">Link Live Streaming</label>
+                                                <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="url" value="https://youtube.com" id="example-url-input">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date and time</label>
-                                                <div class="col-sm-10">
-                                                    <input class="form-control" type="datetime-local" value="2022-08-21T13:45:00" id="example-datetime-local-input">
+                                                    <input class="form-control" type="datetime-local" value="{{$data_artikel->tanggal_artikel}}" name="tanggal_artikel" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Thumbnail</label>
                                                 <div class="col-sm-10">
-                                                    <input type="file" id="input-file-now" class="dropify" />  
+                                                    <input type="file" name="thumbnail_artikel" id="thumbnail_artikel" class="dropify" required/>  
                                                 </div>
                                             </div>
-                                            
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Action</label>
                                                 <div class="col-sm-10">
@@ -152,7 +155,17 @@
                                                 </div>
                                             </div>
                                         </form>
-                                    </div>                                        
+                                    </div>
+                                    {{-- <div class="col-xl-6">                                
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Gambar</label>
+                                            <div class="col-sm-10">
+                                                <div class="">
+                                                    <img src="{{asset('template/admin/assets/images/small/img-2.jpg')}}" class="img-fluid" alt="Responsive image" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> --}}
                                 </div>                                            
                             </div>
                         </div>

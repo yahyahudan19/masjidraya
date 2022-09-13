@@ -39,7 +39,7 @@
                                           <i class="fas fa-tasks text-gradient-success"></i>
                                       </div>
                                       <div class="col-10 text-right">
-                                          <h5 class="mt-0 mb-1">190</h5>
+                                          <h5 class="mt-0 mb-1">{{$kegiatan}}</h5>
                                           <p class="mb-0 font-12 text-muted">Kegiatan</p>   
                                       </div>
                                   </div>                                                        
@@ -56,7 +56,7 @@
                                           <i class="fas fa-book text-gradient-danger"></i>
                                       </div>
                                       <div class="col-10 text-right">
-                                          <h5 class="mt-0 mb-1">62</h5>
+                                          <h5 class="mt-0 mb-1">{{$artikel}}</h5>
                                           <p class="mb-0 font-12 text-muted">Artikel</p>
                                       </div>
                                   </div>                                                        
@@ -92,7 +92,7 @@
                                           <i class="fas fa-users text-gradient-warning"></i>
                                       </div>
                                       <div class="col-10 text-right">
-                                          <h5 class="mt-0 mb-1">14</h5>
+                                          <h5 class="mt-0 mb-1">{{$user}}</h5>
                                           <p class="mb-0 font-12 text-muted">User</p>    
                                       </div>
                                   </div>                                                        

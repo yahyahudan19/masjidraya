@@ -10,7 +10,7 @@
                 <div class="page-title-box">
                     <div class="btn-group float-right">
                         <ol class="breadcrumb hide-phone p-0 m-0">
-                            <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                            <li class="breadcrumb-item"><a href="#">User</a></li>
                             <li class="breadcrumb-item"><a href="#">Artikel</a></li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                         <p class="text-muted mb-4 font-13">Untuk menambahkan Artikel Pilih Tombol <b>Tambah</b> untuk Import data Pilih tombol <b>Import</b>.</p>
 
                         <div class="button-items">
-                            <a type="button" href="/admin/artikel/add" class="btn btn-primary waves-effect waves-light" ><i class="mdi mdi-plus-box mr-2"></i>Tambah</a>
+                            <a type="button" href="/user/artikel/add" class="btn btn-primary waves-effect waves-light" ><i class="mdi mdi-plus-box mr-2"></i>Tambah</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                                             <i class="fas fa-book-open text-gradient-danger"></i>
                                         </div>
                                         <div class="col-10 text-right">
-                                            <h5 class="mt-0 mb-1">10</h5>
+                                            <h5 class="mt-0 mb-1">{{$total}}</h5>
                                             <p class="mb-0 font-12 text-muted">Artikel</p>   
                                         </div>
                                     </div>                                                        
@@ -56,11 +56,11 @@
                                 <div class="icon-contain">
                                     <div class="row">
                                         <div class="col-2 align-self-center">
-                                            <i class="fas fa-user text-gradient-warning"></i>
+                                            <i class="fas fa-check-circle text-gradient-success"></i>
                                         </div>
                                         <div class="col-10 text-right">
-                                            <h5 class="mt-0 mb-1">5</h5>
-                                            <p class="mb-0 font-12 text-muted">Author</p>
+                                            <h5 class="mt-0 mb-1">{{$verif}}</h5>
+                                            <p class="mb-0 font-12 text-muted">Terverifikasi</p>
                                         </div>
                                     </div>                                                        
                                 </div>
@@ -82,46 +82,38 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Artikel</th>
-                                <th>Author</th>
                                 <th>Tanggal</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Keislaman Indonesia</td>
-                                <td>Ust. Syamsul Arifin</td>                                
-                                <td>2022/08/31</td>
-                                <td>
-                                    <a type="button" href="/artikel" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-eye mr-2"></i>Lihat</a>
-                                    <a type="button" href="/admin/kegiatan/detail" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
-                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Islam dan Sosial Pendidikan</td>
-                                <td>Ust. Baha'uddin </td>
-                                <td>2022/08/31</td>
-                                <td>
-                                    <a type="button" href="/artikel" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-eye mr-2"></i>Lihat</a>
-                                    <a type="button" href="#" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
-                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Hukum Mengucapkan Salam kepada Non-Muslim</td>
-                                <td>Habib Muhammad Bin Anies Shahab </td>
-                                <td>2022/08/31</td>
-                                <td>
-                                    <a type="button" href="/artikel" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-eye mr-2"></i>Lihat</a>
-                                    <a type="button" href="#" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
-                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
-                                </td>
-                            </tr>
+                                @php $no = 1; @endphp
+                                @foreach ($artikel as $artikel)
+                                <tr>
+                                    <td>{{$no++}}</td>
+                                    <td>{{$artikel->nama_artikel}}</td>
+                                    <td>
+                                        <?php
+                                            $date = Date('d M Y', strtotime($artikel->tanggal_artikel));
+                                        ?>
+                                        {{$date}}
+                                    </td>
+                                    <td>
+                                        @if($artikel->status_artikel == 'Belum Valid')
+                                            <span class="badge badge-warning"><i class="mdi mdi-close-circle"></i>Belum Terverifikasi</span>
+                                        @else
+                                            <span class="badge badge-success"><i class="mdi mdi-check-circle"></i>Terverifikasi</span>
+                                        @endif
+                                    </td>                                
+                                    <td>
+                                        {{-- <a type="button" href="/artikel" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-eye mr-2"></i>Lihat</a> --}}
+                                        <a type="button" href="/user/artikel/{{$artikel->id_artikel}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                        <a type="button" href="/user/artikel/delete/{{$artikel->id_artikel}}" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
+                                    </td>
+                                </tr>
+                                @endforeach
                             
                             </tbody>
                         </table>

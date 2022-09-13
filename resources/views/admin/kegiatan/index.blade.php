@@ -111,7 +111,7 @@
                                     <a type="button" href="{{$kegiatan->link_kegiatan}}" target="_blank" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-youtube mr-2"></i>Link</a>
                                 </td>
                                 <td>
-                                    <a type="button" href="/admin/kegiatan/detail/{{$kegiatan->id_kegiatan}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                    <a type="button" href="/admin/kegiatan/{{$kegiatan->id_kegiatan}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
                                     <a type="button" href="/admin/kegiatan/delete/{{$kegiatan->id_kegiatan}}" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
                                 </td>
                             </tr>

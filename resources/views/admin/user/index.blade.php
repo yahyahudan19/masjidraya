@@ -44,7 +44,7 @@
                                             <i class="fas fa-user-friends text-gradient-danger"></i>
                                         </div>
                                         <div class="col-10 text-right">
-                                            <h5 class="mt-0 mb-1">10</h5>
+                                            <h5 class="mt-0 mb-1">{{$user}}</h5>
                                             <p class="mb-0 font-12 text-muted">User</p>   
                                         </div>
                                     </div>                                                        
@@ -61,7 +61,7 @@
                                             <i class="fas fa-user-shield text-gradient-warning"></i>
                                         </div>
                                         <div class="col-10 text-right">
-                                            <h5 class="mt-0 mb-1">5</h5>
+                                            <h5 class="mt-0 mb-1">{{$admin}}</h5>
                                             <p class="mb-0 font-12 text-muted">Admin</p>
                                         </div>
                                     </div>                                                        
@@ -104,7 +104,7 @@
                                     @if($user->status == 'Aktif')
                                         <span class="badge badge-success"><i class="mdi mdi-check-circle"></i>Terverifikasi</span>
                                     @else
-                                        <span class="badge badge-warning"><i class="mdi mdi-close-circle"></i>Belum Terverifikasi</span>
+                                        <span class="badge badge-danger"><i class="mdi mdi-close-circle"></i>Belum Terverifikasi</span>
                                     @endif
                                 </td>
                                 <td>

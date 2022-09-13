@@ -21,7 +21,7 @@
                                     <img src="{{asset('template/home/assets/images/footer/footer-top/02.png')}}" alt="email-icon">
                                 </div>
                                 <div class="lab-content">
-                                    <span>rayaannurpolinema@gmail.com</span>
+                                    <span>rayaannur@polinema.ac.id</span>
                                 </div>
                             </div>
                         </div>

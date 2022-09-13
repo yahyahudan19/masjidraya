@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use App\Models\Kegiatan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -44,7 +45,9 @@ class HomeController extends Controller
     public function detailArtikel($id_artikel){
         $lain_artikel = Artikel::where('status_artikel','Valid')->paginate(4);  
         $data_artikel = Artikel::find($id_artikel);
-        return view('homepage.artikel.detail',compact('data_artikel','lain_artikel'));
+        $foto_artikel = User::where('name',$data_artikel->penulis_artikel)->first();
+
+        return view('homepage.artikel.detail',compact('data_artikel','lain_artikel','foto_artikel'));
     }
 
     /* Kegiatan View */

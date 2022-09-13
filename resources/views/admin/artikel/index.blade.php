@@ -112,7 +112,7 @@
                                 </td>                                
                                 <td>
                                     {{-- <a type="button" href="/artikel" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-eye mr-2"></i>Lihat</a> --}}
-                                    <a type="button" href="/admin/artikel/detail/{{$artikel->id_artikel}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                    <a type="button" href="/admin/artikel/{{$artikel->id_artikel}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
                                     <a type="button" href="/admin/artikel/delete/{{$artikel->id_artikel}}" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
                                     @if($artikel->status_artikel == 'Belum Valid')
                                         <a type="button" href="/admin/artikel/verifikasi/{{$artikel->id_artikel}}" class="btn btn-success waves-effect waves-light btn-sm"><i class="mdi mdi-check-circle mr-2"></i>Verifikasi</a>

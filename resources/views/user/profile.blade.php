@@ -1,5 +1,5 @@
 @extends('admin._page.master')
-@section('title','Detail User')
+@section('title','Profile')
 @section('content')
 <div class="page-content-wrapper ">
 
@@ -11,11 +11,10 @@
                     <div class="btn-group float-right">
                         <ol class="breadcrumb hide-phone p-0 m-0">
                             <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                            <li class="breadcrumb-item"><a href="#">User</a></li>
-                            <li class="breadcrumb-item"><a href="#">Detail</a></li>
+                            <li class="breadcrumb-item"><a href="#">Profile</a></li>
                         </ol>
                     </div>
-                    <h4 class="page-title">Detail User</h4>
+                    <h4 class="page-title">Profile User</h4>
                 </div>
             </div>
         </div>
@@ -23,12 +22,11 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Detail User Masjid Raya An-Nur Polinema</h4>
-                        <p class="text-muted mb-4 font-13">Berikut detail User Masjid Raya An-Nur Polinema, Silahkan lakukan perubahan jika ada kesalahan atau tambahan.</p>
+                        <h4 class="mt-0 header-title">Profile {{$data_user->name}} </h4>
+                        <p class="text-muted mb-4 font-13">Berikut Profile {{$data_user->name}} Masjid Raya An-Nur Polinema, Silahkan lakukan perubahan jika ada kesalahan atau tambahan.</p>
 
                         <div class="button-items">
-                            <a href="/admin/user" type="button" class="btn btn-gradient-info waves-effect waves-light"><i class="mdi mdi-keyboard-backspace mr-2"></i>Kembali</a>
-                            <button type="button" class="btn btn-gradient-warning waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-User-modal-lg"><i class="mdi mdi-settings mr-2"></i>Update</button>
+                            {{-- <button type="button" class="btn btn-gradient-warning waves-effect waves-light" data-toggle="modal" data-animation="bounce" data-target=".bs-User-modal-lg"><i class="mdi mdi-settings mr-2"></i>Update</button> --}}
                         </div>
                     </div>
                 </div>
@@ -112,7 +110,7 @@
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">Email</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" parsley-type="email" value="{{$data_user->email}}" name="email" required>
+                                                    <input class="form-control" parsley-type="email" value="{{$data_user->email}}" name="email" required disabled>
                                                 </div>
                                             </div>
                                             {{-- <div class="form-group row">
@@ -121,16 +119,7 @@
                                                     <input class="form-control" data-parsley-minlength="6" type="password" name="password" required>
                                                 </div>
                                             </div> --}}
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-sm-2 col-form-label">Role</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control" name="role">
-                                                        <option>-Pilih Role-</option>
-                                                        <option>Penulis</option>
-                                                        <option>Admin</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Foto Profile</label>
                                                 <div class="col-sm-10">

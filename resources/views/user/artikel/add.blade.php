@@ -27,7 +27,7 @@
                         <p class="text-muted mb-4 font-13">Berikut Form Artikel Masjid Raya An-Nur Polinema, Silahkan lakukan penambahan data pada Artikel.</p>
 
                         <div class="button-items">
-                            <a href="/admin/artikel" type="button" class="btn btn-gradient-info waves-effect waves-light"><i class="mdi mdi-keyboard-backspace mr-2"></i>Kembali</a>
+                            <a href="/user/artikel" type="button" class="btn btn-gradient-info waves-effect waves-light"><i class="mdi mdi-keyboard-backspace mr-2"></i>Kembali</a>
                         </div>
                     </div>
                 </div>
@@ -39,45 +39,42 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xl-12">
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Judul Artikel</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Kultum Rutin" id="example-text-input" >
+                                <form class="" action="/user/artikel/adding" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Judul Artikel</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="nama_artikel" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Konten</label>
-                                    <div class="col-sm-10">
-                                        <textarea id="elm1" name="area"></textarea>
+                                   
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Konten</label>
+                                        <div class="col-sm-10">
+                                            <textarea id="elm1" name="konten_artikel"></textarea>
+                                        </div>
+                                    </div>   
+                                    <div class="form-group row">
+                                        <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="datetime-local" value="2022-09-03T13:45:00" id="tanggal_artikel" name="tanggal_artikel" required>
+                                        </div>
                                     </div>
-                                </div>   
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Author</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-search-input" >
+                                    <div class="form-group row">
+                                        <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Thumbnail</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" id="thumbnail_artikel" name="thumbnail_artikel" class="dropify" required/>  
+                                        </div>
                                     </div>
-                                </div>   
-                                <div class="form-group row">
-                                    <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="datetime-local" value="2022-09-03T13:45:00" id="example-datetime-local-input" >
+                                    <div class="form-group row">
+                                        <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Action</label>
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                Submit
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Thumbnail</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" id="input-file-now" class="dropify" />  
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Action</label>
-                                    <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                            Submit
-                                        </button>
-                                    </div>
-                                </div>
-
+                                </form>
                             </div>
                             {{-- <div class="col-xl-6">                                
                                 <div class="form-group row">

@@ -162,7 +162,7 @@
                                         <a href="#">
                                             <h6 class="card-title mb-0">Ust. Syamsul Arifin</h6>
                                         </a>
-                                        <p class="card-text mb-3">Sie Peribadatan</p>
+                                        <p class="card-text mb-3">Sie Sieapa yaa</p>
                                         <div class="social-share">
                                             <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
                                             <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>
@@ -184,7 +184,7 @@
                                         <a href="#">
                                             <h6 class="card-title mb-0">A. Yahya Hudan, S.Tr.Kom</h6>
                                         </a>
-                                        <p class="card-text mb-3">IT Support</p>
+                                        <p class="card-text mb-3">Tukang Sembarang !</p>
                                         <div class="social-share">
                                             <a href="#" class="m-1 twitter"><i class="icofont-twitter"></i></a>
                                             <a href="#" class="m-1 behance"><i class="icofont-behance"></i></a>

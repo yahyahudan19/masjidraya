@@ -15,12 +15,12 @@
       </div>
   </div>
   <div class="sidebar-user">
-      <img src="{{asset('template/home/assets/images/logo_hitam.png')}}" alt="user" class="rounded-circle img-thumbnail mb-1">
+    <img src="{{asset('images/profile/'.auth()->user()->photo)}}" alt="user" class="rounded-circle img-thumbnail mb-1">
       <h6 class="">{{auth()->user()->name}}</h6> 
       <p class=" online-icon text-dark"><i class="mdi mdi-record text-success"></i>online</p>                    
       <ul class="list-unstyled list-inline mb-0 mt-2">
           <li class="list-inline-item">
-              <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Profile"><i class="dripicons-user text-purple"></i></a>
+              <a href="/admin/profile/{{auth()->user()->id}}" class="" data-toggle="tooltip" data-placement="top" title="Profile"><i class="dripicons-user text-purple"></i></a>
           </li>
           <li class="list-inline-item">
               <a href="#" class="" data-toggle="tooltip" data-placement="top" title="Settings"><i class="dripicons-gear text-dark"></i></a>
@@ -61,7 +61,7 @@
               <li class="menu-title">Setting</li>
 
               <li>
-                <a href="#" class="waves-effect"><i class="dripicons-user"></i><span> Profile </span></a>
+                <a href="/admin/profile/{{auth()->user()->id}}" class="waves-effect"><i class="dripicons-user"></i><span> Profile </span></a>
              </li>
 
           </ul>
@@ -89,7 +89,7 @@
             </li>
             <li class="menu-title">Setting</li>
             <li>
-              <a href="#" class="waves-effect"><i class="dripicons-user"></i><span> Profile </span></a>
+              <a href="/user/profile/{{auth()->user()->id}}" class="waves-effect"><i class="dripicons-user"></i><span> Profile </span></a>
            </li>
 
         </ul>
