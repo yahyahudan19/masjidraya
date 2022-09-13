@@ -68,8 +68,10 @@ Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
 
     /* Gallery Routes */
     Route::get('/admin/gallery', [AdminController::class,'gallery']);
-    Route::get('/admin/gallery/add', [AdminController::class,'addGallery']);
-    Route::get('/admin/gallery/detail', [AdminController::class,'detGallery']);
+    Route::get('/admin/gallery/tambah', [AdminController::class,'tambahGallery']);
+    Route::post('/admin/gallery/add', [AdminController::class,'addGallery']);
+    Route::get('/admin/gallery/{id}', [AdminController::class,'detGallery']);
+    Route::put('/admin/gallery/update/', [AdminController::class,'updGallery']);
 
     /* User Routes */
     Route::get('/admin/user', [AdminController::class,'user']);

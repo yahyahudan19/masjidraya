@@ -38,44 +38,44 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Kultum Rutin" id="example-text-input" >
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" value="{{$data_gallery->title_gallery}}" id="example-text-input" readonly>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Subtitle</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Kultum Rutin" id="example-text-input" >
-                                    </div>
-                                </div>   
-                                <div class="form-group row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">tag</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-search-input" >
-                                    </div>
-                                </div>   
-                                <div class="form-group row">
-                                    <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="datetime-local" value="2022-09-03T13:45:00" id="example-datetime-local-input" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">                                
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Gambar</label>
-                                    <div class="col-sm-10">
-                                        <div class="">
-                                            <img src="{{asset('template/admin/assets/images/small/img-2.jpg')}}" class="img-fluid" alt="Responsive image" disabled>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Pemateri</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" value="{{$data_gallery->pemateri_gallery}}" id="example-text-input" readonly>
+                                        </div>
+                                    </div>   
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">tag</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" value="{{$data_gallery->tag_gallery}}" id="example-search-input" readonly>
+                                        </div>
+                                    </div>   
+                                    <div class="form-group row">
+                                        <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="datetime-local" value="{{$data_gallery->tanggal_gallery}}" id="example-datetime-local-input"readonly >
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>                                            
+                                <div class="col-xl-6">                                
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Gambar</label>
+                                        <div class="col-sm-10">
+                                            <div class="">
+                                                <img src="{{asset('images/gallery/'.$data_gallery->gambar_gallery)}}" class="img-fluid" alt="Responsive image" height="350px" width="350px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                            
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -99,35 +99,38 @@
                             <div class="card-body"> 
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <form class="" action="#">
+                                        <form class="" action="/admin/gallery/update" method="POST" enctype="multipart/form-data">
+                                            @method('PUT')
+                                            @csrf
+                                            <input class="form-control" type="hidden" value="{{$data_gallery->id_gallery}}" id="example-text-input" name="id_gallery" required>
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" value="Kultum Rutin" id="example-text-input" >
+                                                    <input class="form-control" type="text" value="{{$data_gallery->title_gallery}}" id="example-text-input" name="title_gallery" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="example-text-input" class="col-sm-2 col-form-label">Subtitle</label>
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Pemateri</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" value="Kultum Rutin" id="example-text-input" >
+                                                    <input class="form-control" type="text" value="{{$data_gallery->pemateri_gallery}}" id="example-text-input" name="pemateri_gallery" required>
                                                 </div>
                                             </div>   
                                             <div class="form-group row">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">tag</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="text" value="Ust. Syamsul Arifin" id="example-search-input" >
+                                                    <input class="form-control" type="text" value="{{$data_gallery->tag_gallery}}" id="example-search-input" name="tag_gallery" required>
                                                 </div>
                                             </div>   
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Tanggal</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="datetime-local" value="2022-09-03T13:45:00" id="example-datetime-local-input" >
+                                                    <input class="form-control" type="datetime-local" value="{{$data_gallery->tanggal_gallery}}" id="example-datetime-local-input" name="tanggal_gallery" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Gambar</label>
                                                 <div class="col-sm-10">
-                                                    <input type="file" id="input-file-now" class="dropify" />  
+                                                    <input type="file" id="input-file-now" class="dropify" name="gambar_gallery"/>  
                                                 </div>
                                             </div>
                                             

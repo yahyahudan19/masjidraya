@@ -74,7 +74,7 @@
                                         <i class="fas fa-camera text-gradient-primary"></i>
                                     </div>
                                     <div class="col-10 text-right">
-                                        <h5 class="mt-0 mb-1">23</h5>
+                                        <h5 class="mt-0 mb-1">{{$gallery}}</h5>
                                         <p class="mb-0 font-12 text-muted">Gallery</p>    
                                     </div>
                                 </div>                                                        

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
+use App\Models\Gallery;
 use App\Models\Kegiatan;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -25,7 +26,10 @@ class HomeController extends Controller
     
     /* Galery View */
     public function gallery(){
-        return view('homepage/gallery');
+        $gallery = Gallery::all();
+        $view = Gallery::all();
+        $total = Gallery::all()->count();
+        return view('homepage/gallery',compact('gallery','total','view'));
     }
 
     /* Contact View */

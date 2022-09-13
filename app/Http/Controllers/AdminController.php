@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
+use App\Models\Gallery;
 use App\Models\Kegiatan;
 use App\Models\User;
 use Carbon\Carbon;
@@ -21,8 +22,9 @@ class AdminController extends Controller
         $kegiatan = Kegiatan::all()->count();
         $artikel = Artikel::all()->count();
         $user = User::all()->count();
+        $gallery = Gallery::all()->count();
 
-        return view('admin/index',compact('kegiatan','user','artikel'));
+        return view('admin/index',compact('kegiatan','user','artikel','gallery'));
     }
 
     /* ========= Kegiatan Controller ========= */
@@ -46,7 +48,7 @@ class AdminController extends Controller
                 'thumbnail_kegiatan' => 'required|max:2048',
             ]);
 
-            $request->file('thumbnail_kegiatan')->move('images/',$request->file('thumbnail_kegiatan')->getClientOriginalName());
+            $request->file('thumbnail_kegiatan')->move('images/kegiatan/',$request->file('thumbnail_kegiatan')->getClientOriginalName());
 
             $kegiatan = Kegiatan::create([
                 'nama_kegiatan' => $request->nama_kegiatan,
@@ -84,7 +86,7 @@ class AdminController extends Controller
         if($data_kegiatan){
 
             $file_name = $data_kegiatan->thumbnail_kegiatan;
-            $file_path = public_path('images/' . $file_name);
+            $file_path = public_path('images/kegiatan' . $file_name);
             unlink($file_path);
 
             $data_kegiatan->delete($data_kegiatan);
@@ -109,23 +111,39 @@ class AdminController extends Controller
 
         if($kegiatan){
 
-            $request->validate([
-                'thumbnail_kegiatan' => 'required|max:2048',
-            ]);
+            if($request->hasFile('thumbnail_kegiatan')){
 
-            $request->file('thumbnail_kegiatan')->move('images/',$request->file('thumbnail_kegiatan')->getClientOriginalName());
+                $file_name = $kegiatan->thumbnail_kegiatan;
+                $file_path = public_path('images/kegiatan/' . $file_name);
+                
+                unlink($file_path);
 
-            $kegiatan->update([
-                'nama_kegiatan' => $request->nama_kegiatan,
-                'pemateri_kegiatan' => $request->pemateri_kegiatan,
-                'tanggal_kegiatan' => $request->tanggal_kegiatan,
-                'link_kegiatan' => $request->link_kegiatan,
-                'lokasi_kegiatan' => $request->lokasi_kegiatan,
-                'thumbnail_kegiatan' => $request->file('thumbnail_kegiatan')->getClientOriginalName(),
-
-            ]);
-
-            return redirect()->back()->with('success', 'Kegiatan Berhasil diedit !');
+                $request->validate([
+                    'thumbnail_kegiatan' => 'required|max:2048',
+                ]);
+    
+                $request->file('thumbnail_kegiatan')->move('images/kegiatan/',$request->file('thumbnail_kegiatan')->getClientOriginalName());
+    
+                $kegiatan->update([
+                    'nama_kegiatan' => $request->nama_kegiatan,
+                    'pemateri_kegiatan' => $request->pemateri_kegiatan,
+                    'tanggal_kegiatan' => $request->tanggal_kegiatan,
+                    'link_kegiatan' => $request->link_kegiatan,
+                    'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                    'thumbnail_kegiatan' => $request->file('thumbnail_kegiatan')->getClientOriginalName(),
+                ]);
+                return redirect()->back()->with('success', 'Kegiatan Berhasil diedit !');
+                
+            }else{
+                $kegiatan->update([
+                    'nama_kegiatan' => $request->nama_kegiatan,
+                    'pemateri_kegiatan' => $request->pemateri_kegiatan,
+                    'tanggal_kegiatan' => $request->tanggal_kegiatan,
+                    'link_kegiatan' => $request->link_kegiatan,
+                    'lokasi_kegiatan' => $request->lokasi_kegiatan,
+                ]);
+                return redirect()->back()->with('success', 'Kegiatan Berhasil diedit !');
+            }
             
         }else{
             return redirect()->back()->with('warning', 'Kegiatan Tidak Ada !');
@@ -151,8 +169,6 @@ class AdminController extends Controller
 
     /* Add Artikel*/
     public function addArtikel(Request $request){
-
-        dd($request->all());
 
         //  With Thumbnail
 
@@ -227,19 +243,36 @@ class AdminController extends Controller
         if($artikel){
 
             // dd($request->all());
+            if($request->hasFile('thumbnail_artikel')){
 
-            $request->file('thumbnail_artikel')->move('images/artikel/',$request->file('thumbnail_artikel')->getClientOriginalName());
+                $file_name = $artikel->thumbnail_artikel;
+                $file_path = public_path('images/artikel/' . $file_name);
+                
+                unlink($file_path);
+
+                $request->file('thumbnail_artikel')->move('images/artikel/',$request->file('thumbnail_artikel')->getClientOriginalName());
             
-            $artikel->update([
-                'nama_artikel' => $request->nama_artikel,
-                'konten_artikel' => $request->konten_artikel,
-                'penulis_artikel' => $request->penulis_artikel,
-                'artikel_artikel' => $request->artikel_artikel,
-                'tanggal_artikel' => $request->tanggal_artikel,
-                'thumbnail_artikel' => $request->file('thumbnail_artikel')->getClientOriginalName(),
-            ]);
+                $artikel->update([
+                    'nama_artikel' => $request->nama_artikel,
+                    'konten_artikel' => $request->konten_artikel,
+                    'penulis_artikel' => $request->penulis_artikel,
+                    'artikel_artikel' => $request->artikel_artikel,
+                    'tanggal_artikel' => $request->tanggal_artikel,
+                    'thumbnail_artikel' => $request->file('thumbnail_artikel')->getClientOriginalName(),
+                ]);
+    
+                return redirect()->back()->with('success','Artikel Berhasil Diupdate');
+            }else{
 
-            return redirect()->back()->with('success','Artikel Berhasil Diupdate');
+                $artikel->update([
+                    'nama_artikel' => $request->nama_artikel,
+                    'konten_artikel' => $request->konten_artikel,
+                    'penulis_artikel' => $request->penulis_artikel,
+                    'artikel_artikel' => $request->artikel_artikel,
+                    'tanggal_artikel' => $request->tanggal_artikel,
+                ]);
+                return redirect()->back()->with('success','Artikel Berhasil Diupdate');
+            }
         }else{
             return redirect()->back()->with('warning','Artikel Tidak Ada');
         }
@@ -265,17 +298,118 @@ class AdminController extends Controller
     }
 
     /* ========= Gallery View ========= */
+    
+    /* View Gallery */
     public function gallery(){
-        return view('admin/gallery/index');
+        $gallery = Gallery::all();
+        return view('admin/gallery/index',compact('gallery'));
     }
-    /* Add Gallery*/
-    public function addGallery(){
+
+    /* Add View Gallery */
+    public function tambahGallery(){
         return view('admin/gallery/add');
     }
-    /* Detail Gallery*/
-    public function detGallery(){
-        return view('admin/gallery/detail');
+    
+    /* Add Gallery */
+    public function addGallery(Request $request){
+
+        //  With Thumbnail
+
+        if($request->hasFile('gambar_gallery')){
+
+            // dd($request->all());
+
+            $request->validate([
+                'gambar_gallery' => 'required|max:2048',
+            ]);
+
+            $request->file('gambar_gallery')->move('images/gallery',$request->file('gambar_gallery')->getClientOriginalName());
+
+            $gallery = Gallery::create([
+                'title_gallery' => $request->title_gallery,
+                'pemateri_gallery' => $request->pemateri_gallery,
+                'tag_gallery' => $request->tag_gallery,
+                'tanggal_gallery' => $request->tanggal_gallery,
+                'gambar_gallery' => $request->file('gambar_gallery')->getClientOriginalName(),
+            ]);
+            
+            if($gallery){
+                return redirect('admin/gallery')->with('success', 'Gallery Berhasil ditambahkan !');
+            }else{
+                return redirect('admin/gallery')->with('error', 'Gallery Gagal ditambahkan !');
+            }
+            return redirect('admin/gallery')->with('error', 'Gallery Gagal ditambahkan !');
+        }
     }
+
+    /* Detail Gallery*/
+    public function detGallery($id_gallery){
+
+        $data_gallery = Gallery::find($id_gallery);    
+        return view('admin/gallery/detail',compact('data_gallery'));
+    }
+
+    /* Delete Gallery*/
+    public function delGallery($id_gallery){
+
+        $data_gallery = Gallery::find($id_gallery);    
+
+        if($data_gallery){
+            $file_name = $data_gallery->gambar_gallery;
+            $file_path = public_path('images/gallery/' . $file_name);
+            unlink($file_path);
+            
+            $data_gallery->delete($data_gallery);
+            return redirect('/admin/gallery')->with('success', 'Foto Berhasil dihapus !');
+        }else{
+            return redirect('/admin/gallery')->with('warning', 'Foto Gagal dihapus !');
+        }
+    }
+     /* Update Gallery*/
+     public function updGallery(Request $request){
+
+
+        $gallery_id = $request->id_gallery;
+        $gallery = Gallery::find($gallery_id);
+
+        if($gallery){
+            // Upload Dengan Gambar
+            if($request->hasFile('gambar_gallery')){
+                
+                $file_name = $gallery->gambar_gallery;
+                $file_path = public_path('images/gallery/' . $file_name);
+                
+                unlink($file_path);
+
+                $request->file('gambar_gallery')->move('images/gallery',$request->file('gambar_gallery')->getClientOriginalName());
+    
+                $gallery->update([
+                    "title_gallery" => $request->title_gallery,
+                    "pemateri_gallery" => $request->pemateri_gallery,
+                    "tag_gallery" => $request->tag_gallery,
+                    "tanggal_gallery" => $request->tanggal_gallery,
+                    "gambar_gallery" => $request->file('gambar_gallery')->getClientOriginalName(),
+                ]);
+                return redirect()->back()->with('success','Foto Berhasil Diupdate');
+            }else{
+
+            // Upload Tanpa Gambar
+                 dd($request->all());
+
+                $gallery->update([
+                    "title_gallery" => $request->title_gallery,
+                    "pemateri_gallery" => $request->pemateri_gallery,
+                    "tag_gallery" => $request->tag_gallery,
+                    "tanggal_gallery" => $request->tanggal_gallery,
+                ]);
+                return redirect()->back()->with('success','Foto Berhasil Diupdate');
+            }
+        }else{
+
+            return redirect()->back()->with('error','Foto Tidak Ditemukan !');
+        }
+
+     }
     
     /* ========= User View ========= */
 
@@ -396,7 +530,7 @@ class AdminController extends Controller
 
 
 
-     /* =================================== User Artikel Controller ================================ */
+     /* =================================== User Controller ================================ */
 
     /* View Artikel */ 
     public function userArtikel(){

@@ -28,14 +28,16 @@
                     <div class="event-content">
                         <div class="event-top tri-shape-2 pattern-2">
                             <div class="event-top-thumb">
-                                <img src="{{asset('images/'.$kegiatan_utama->thumbnail_kegiatan)}}" alt="Upcoming-event">
+                                <img src="{{asset('images/kegiatan/'.$kegiatan_utama->thumbnail_kegiatan)}}" alt="Upcoming-event">
                             </div>
                             <div class="event-top-content">
                                 <div class="event-top-content-wrapper">
                                     <h3><a href="/kegiatan/{{$kegiatan_utama->id_kegiatan}}">{{$kegiatan_utama->nama_kegiatan}} </a> </h3>
                                     <div class="date-count-wrapper">
                                         <ul class="lab-ul event-date">
-                                            <li><i class="icofont-calendar"></i> <span>{{$kegiatan_utama->tanggal_kegiatan}}</span></li>
+                                            <li><i class="icofont-calendar"></i> <span>
+                                                {{ Carbon\Carbon::parse($kegiatan_utama->tanggal_kegiatan)->isoFormat('dddd, D MMMM Y HH:MM') }}
+                                            </span></li>
                                             <li><i class="icofont-location-pin"></i> <span>{{$kegiatan_utama->lokasi_kegiatan}}</span></li>
                                         </ul>
                                         <ul class="lab-ul event-count" data-date="{{$kegiatan_utama->tanggal_kegiatan}}">

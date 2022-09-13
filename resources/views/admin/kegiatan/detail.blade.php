@@ -76,7 +76,7 @@
                                     <label class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <div class="">
-                                            <img src="{{asset('images/'.$data_kegiatan->thumbnail_kegiatan)}}" class="img-fluid" alt="Responsive image" disabled>
+                                            <img src="{{asset('images/kegiatan/'.$data_kegiatan->thumbnail_kegiatan)}}" class="img-fluid" alt="Responsive image" disabled>
                                         </div>
                                     </div>
                                 </div>

@@ -26,7 +26,7 @@
                         <p class="text-muted mb-4 font-13">Untuk menambahkan Gallery Pilih Tombol <b>Tambah</b> untuk Import data Pilih tombol <b>Import</b>.</p>
 
                         <div class="button-items">
-                            <a type="button" href="/admin/gallery/add" class="btn btn-primary waves-effect waves-light" ><i class="mdi mdi-plus-box mr-2"></i>Tambah</a>
+                            <a type="button" href="/admin/gallery/tambah" class="btn btn-primary waves-effect waves-light" ><i class="mdi mdi-plus-box mr-2"></i>Tambah</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Title</th>
-                                <th>Subtitle</th>
+                                <th>Pemateri</th>
                                 <th>Gambar</th>
                                 <th>Tag</th>
                                 <th>Tanggal</th>
@@ -91,19 +91,28 @@
                             </thead>
 
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Nawak Hijrah</td>
-                                <td>Bersama Habib Muhammad Bin Anies Shahab</td>                                
-                                <td>Ini Gambar</td>
-                                <td>.nawak-hijrah</td>
-                                <td>2022/08/31</td>
-                                <td>
-                                    <a type="button" href="/gallery" class="btn btn-info waves-effect waves-light btn-sm"><i class="mdi mdi-eye mr-2"></i>Lihat</a>
-                                    <a type="button" href="/admin/gallery/detail" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
-                                    <a type="button" href="#" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
-                                </td>
-                            </tr>                            
+                                @php $no = 1; @endphp
+                                @foreach ($gallery as $gallery)
+                                    <tr>
+                                        <td>{{$no++}}</td>
+                                        <td>{{$gallery->title_gallery}}</td>
+                                        <td>{{$gallery->pemateri_gallery}}</td>                                
+                                        <td>
+                                            <img src="{{asset('images/gallery/'.$gallery->gambar_gallery)}}" class="img-fluid" alt="Responsive image" width="200px">
+                                        </td>
+                                        <td>{{$gallery->tag_gallery}}</td>
+                                        <td>
+                                            <?php
+                                            $date = Date('d M Y', strtotime($gallery->tanggal_gallery));
+                                            ?>
+                                            {{$date}}
+                                        </td>
+                                        <td>
+                                            <a type="button" href="/admin/gallery/{{$gallery->id_gallery}}" class="btn btn-warning waves-effect waves-light btn-sm"><i class="mdi mdi-details mr-2"></i>Detail</a>
+                                            <a type="button" href="/admin/gallery/hapus/{{$gallery->id_gallery}}" class="btn btn-danger waves-effect waves-light btn-sm"><i class="mdi mdi-delete mr-2"></i>Hapus</a>
+                                        </td>
+                                    </tr>       
+                                @endforeach                     
                             </tbody>
                         </table>
 
