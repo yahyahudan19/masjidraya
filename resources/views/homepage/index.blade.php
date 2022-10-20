@@ -411,7 +411,7 @@
                     <div class="event-content">
                         <div class="event-top tri-shape-2 pattern-2">
                             <div class="event-top-thumb">
-                                <img src="{{asset('images/'.$kegiatan_utama->thumbnail_kegiatan)}}" alt="Upcoming-event">
+                                <img src="{{asset('images/kegiatan/'.$kegiatan_utama->thumbnail_kegiatan)}}" alt="Upcoming-event">
                             </div>
                             <div class="event-top-content">
                                 <div class="event-top-content-wrapper">
@@ -454,7 +454,7 @@
                                     <div class="event-item lab-item">
                                         <div class="lab-inner">
                                             <div class="lab-thumb">
-                                                <img src="{{asset('images/'.$kegiatan->thumbnail_kegiatan)}}" alt="event-image">
+                                                <img src="{{asset('images/kegiatan/'.$kegiatan->thumbnail_kegiatan)}}" alt="event-image">
                                             </div>
                                             <div class="lab-content">
                                                 <h5><a href="/kegiatan/{{$kegiatan->id_kegiatan}}">{{$kegiatan->nama_kegiatan}}</a> </h5>
